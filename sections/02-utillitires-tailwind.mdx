@@ -1,13 +1,13 @@
 # Fundamentos de Tailwind CSS
 
 1. [Introducción](#introduccion)
-2. [Contenedor](#contenedor)
-3. [Tipografía](#tipografia)
-4. [Espaciado y tamaño](#espaciado-y-tamano)
-5. [Colores y fondo](#colores-y-fondo)
-6. [Bordes y sombras](#bordes-y-sombras)
-7. [Hover y focus](#hover-y-focus)
-8. [Resumen](#resumen)
+2. [Tipografía](#tipografia)
+3. [Colores y fondo](#colores-y-fondo)
+4. [Tamaños y contenedor](#tamano-y-contenedor)
+5. [Sistema de espaciado](#sistema-de-espaciado)
+6. [Border y sombras](#border-y-sombras)
+7. [Proyecto de sección](#proyecto-de-seccion)
+7. [Resumen](#resumen)
 
 ---
 ## Introducción
@@ -17,28 +17,361 @@ En esta sección, aprenderemos sobre los fundamentos de Tailwind CSS. Veremos c�
 Para esto vamos seguir trabajando en nuestro proyecto de `mi-portafolio` y vamos a crear una página de inicio sencilla utilizando Tailwind CSS.
 
 ---
-## Contenedor
-
-Ahora aprenderemos a utilizar el contenedor de Tailwind CSS. El contenedor es una clase que se utiliza para centrar el contenido de una página web y establecer un ancho máximo para el contenido.
-El contenedor se utiliza comúnmente en la mayoría de los proyectos de Tailwind CSS y es una parte fundamental del diseño de la página.
-
-Para utilizar el contenedor, simplemente agrega la clase `container` a un elemento HTML. Por ejemplo:
-```html
-<div class="container mx-auto">
-  <h1 class="text-3xl font-bold">Bienvenido a mi portafolio</h1>
-  <p class="mt-4">Soy un desarrollador web y este es mi portafolio.</p>
-</div>
-
-```
-
-En este ejemplo, hemos creado un contenedor que centra el contenido y establece un ancho máximo. La clase `mx-auto` se utiliza para centrar el contenedor horizontalmente.
-
-Esta es una forma sencilla de crear un diseño limpio y centrado en la página. Puedes utilizar el contenedor para envolver cualquier contenido que desees centrar en la página.
-
----
 ## Tipografía
 
-En la sección anterior, aprendimos a utilizar el contenedor de Tailwind CSS. Ahora aprenderemos a aplicar estilos de tipografía a los elementos de una página web.
+La tipografía es un aspecto importante del diseño web. En Tailwind CSS, podemos utilizar clases utilitarias para aplicar estilos de tipografía a nuestros elementos. Algunas de las clases más comunes son:
 
-Para agregar más elementos a nuestro proyecto, vamos agregar más secciónes a nuestro archivo `index.html`:
+**Fuente del texto:**: Es para camabiar la fuente del texto. En CSS se utiliza la propiedad `font-family`, en Tailwind CSS se utiliza la clase `font-{fuente}`. Por ejemplo, para utilizar la fuente `sans` podemos utilizar la clase `font-sans`.
+
 ```html
+<p class="font-sans">Este es un texto con fuente sans-serif.</p>
+```
+```html
+<p class="font-serif">Este es un texto con fuente serif.</p>
+```
+```html
+<p class="font-mono">Este es un texto con fuente monoespaciada.</p>
+```
+
+**Tamaño del texto:**: Es para cambiar el tamaño del texto. En CSS se utiliza la propiedad `font-size`, en Tailwind CSS se utiliza la clase `text-{tamaño}`. Por ejemplo, para utilizar un tamaño de texto de `2xl` podemos utilizar la clase `text-2xl`. Estas clases de utilidad es desde `text-xs` hasta `text-9xl`. 
+
+- `text-xs`: 0.75rem (12px)
+- `text-9xl`: 5.625rem (90px)
+
+```html
+<h1 class="text-2xl">Hola Mundo</h1>
+
+<p class="text-sm">Este es un texto pequeño.</p>
+<p class="text-base">Este es un texto base.</p>
+```
+
+- **Estilo del texto:**: Es para cambiar el estilo del texto. En CSS se utiliza la propiedad `font-style`, en Tailwind CSS se utiliza la clase `italic` o `not-italic`. Por ejemplo, para utilizar un estilo de texto `italic` podemos utilizar la clase `italic`.
+
+```html
+<p class="italic">Este es un texto en cursiva.</p>
+```
+
+- **Negrita:**: Es para cambiar el estilo del texto. En CSS se utiliza la propiedad `font-weight`, en Tailwind CSS se utiliza la clase `font-bold` o `font-normal`. Por ejemplo, para utilizar un estilo de texto `bold` podemos utilizar la clase `font-bold`.
+
+```html
+<h1 class="text-2xl font-bold">Hola Mundo</h1>
+<p class="font-normal">Este es un texto normal.</p>
+```
+
+- **Subrayado:**: Es para cambiar el estilo del texto. En CSS se utiliza la propiedad `text-decoration`, en Tailwind CSS se utiliza la clase `underline` o `no-underline`. Por ejemplo, para utilizar un estilo de texto `underline` podemos utilizar la clase `underline`.
+
+```html
+<p class="underline">Este es un texto subrayado.</p>
+<p class="no-underline">Este es un texto sin subrayado.</p>
+```
+
+- **Transformación del texto:**: Es para cambiar el estilo del texto. En CSS se utiliza la propiedad `text-transform`, en Tailwind CSS se utiliza la clase `uppercase`, `lowercase` o `capitalize`. Por ejemplo, para utilizar un estilo de texto `uppercase` podemos utilizar la clase `uppercase`.
+
+```html
+<p class="uppercase">Este es un texto en mayúsculas.</p>
+<p class="lowercase">Este es un texto en minúsculas.</p>
+<p class="capitalize">Este es un texto con la primera letra en mayúscula.</p>
+```
+
+- **Aliniamiento del texto:**: Es para cambiar el estilo del texto. En CSS se utiliza la propiedad `text-align`, en Tailwind CSS se utiliza la clase `text-left`, `text-center` o `text-right`. Por ejemplo, para utilizar un estilo de texto `center` podemos utilizar la clase `text-center`.
+
+```html
+<p class="text-left">Este es un texto alineado a la izquierda.</p>
+<p class="text-center">Este es un texto alineado al centro.</p>
+<p class="text-right">Este es un texto alineado a la derecha.</p>
+```
+
+- **Espaciado entre letras:**: Es para cambiar el estilo del texto. En CSS se utiliza la propiedad `letter-spacing`, en Tailwind CSS se utiliza la clase `tracking-{espaciado}`. Por ejemplo, para utilizar un espaciado de letras de `tight` podemos utilizar la clase `tracking-tight`.
+
+```html
+<p class="tracking-tight">Este es un texto con espaciado de letras ajustado.</p>
+<p class="tracking-normal">Este es un texto con espaciado de letras normal.</p>
+<p class="tracking-wide">Este es un texto con espaciado de letras amplio.</p>
+```
+
+- **Contenido de After y Before:**: Es para cambiar el estilo del texto. En CSS se utiliza la propiedad `content`, en Tailwind CSS se utiliza la clase `before:content-{contenido}` o `after:content-{contenido}`. Por ejemplo, para utilizar un contenido de `Hello` podemos utilizar la clase `before:content-['Hello']`.
+
+```html
+<p>Higher resolution means more than just a better-quality image. With a
+Retina 6K display, <a class="text-blue-600 after:content-['_↗']" href="...">
+Pro Display XDR</a> gives you nearly 40 percent more screen real estate than
+a 5K display.</p>
+```
+
+---
+## Colores y fondo
+Los colores son un aspecto importante del diseño web. En Tailwind CSS, podemos utilizar clases utilitarias para aplicar colores a nuestros elementos. Algunas de las clases más comunes son: 
+
+Tailwind CSS tiene una paleta de colores predeterminada que podemos utilizar en nuestros proyectos. Esta paleta incluye colores como `red`, `green`, `blue`, `yellow`, `purple`, `pink`, entre otros. Cada color tiene diferentes tonalidades, que van desde `50` hasta `900`. Por ejemplo, para utilizar el color `red` con una tonalidad de `500`, podemos utilizar la clase `bg-red-500`.
+
+```html
+<div class="bg-red-500 text-white p-4">Este es un fondo rojo con texto blanco.</div>
+```
+
+```html
+<div class="bg-green-500 text-white p-4">Este es un fondo verde con texto blanco.</div>
+```
+
+```html
+<div class="bg-blue-500 text-white p-4">Este es un fondo azul con texto blanco.</div>
+```
+
+- **Color del texto:**: Es para cambiar el color del texto. En CSS se utiliza la propiedad `color`, en Tailwind CSS se utiliza la clase `text-{color}`. Por ejemplo, para utilizar un color de texto `red` podemos utilizar la clase `text-red-500`.
+
+```html
+<p class="text-red-500">Este es un texto rojo.</p>
+<p class="text-green-500">Este es un texto verde.</p>
+<p class="text-blue-500">Este es un texto azul.</p>
+```
+
+- **Color de fondo:**: Es para cambiar el color de fondo. En CSS se utiliza la propiedad `background-color`, en Tailwind CSS se utiliza la clase `bg-{color}`. Por ejemplo, para utilizar un color de fondo `red` podemos utilizar la clase `bg-red-500`.
+
+```html
+<div class="bg-red-500">Este es un fondo rojo.</div>
+<div class="bg-green-500">Este es un fondo verde.</div>
+<div class="bg-blue-500">Este es un fondo azul.</div>
+```
+
+- **Color de borde:**: Es para cambiar el color del borde. En CSS se utiliza la propiedad `border-color`, en Tailwind CSS se utiliza la clase `border-{color}`. Por ejemplo, para utilizar un color de borde `red` podemos utilizar la clase `border-red-500`.
+
+```html
+<div class="border-2 border-red-500">Este es un borde rojo.</div>
+<div class="border-2 border-green-500">Este es un borde verde.</div>
+<div class="border-2 border-blue-500">Este es un borde azul.</div>
+```
+
+- **Color de sombra:**: Es para cambiar el color de la sombra. En CSS se utiliza la propiedad `box-shadow`, en Tailwind CSS se utiliza la clase `shadow-{color}`. Por ejemplo, para utilizar un color de sombra `red` podemos utilizar la clase `shadow-red-500`.
+
+```html
+<div class="shadow-lg shadow-red-500">Este es un borde rojo.</div>
+<div class="shadow-lg shadow-green-500">Este es un borde verde.</div>
+<div class="shadow-lg shadow-blue-500">Este es un borde azul.</div>
+```
+
+- **Colore de SVG**: Es para cambiar el color de un SVG. En CSS se utiliza la propiedad `stroke`, en Tailwind CSS se utiliza la clase `stroke-{color}`. Por ejemplo, para utilizar un color de borde `red` podemos utilizar la clase `stroke-red-500`.
+
+```html
+
+<svg class="w-6 h-6 stroke-red-500" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+</svg>
+```
+
+---
+## Tamaños y contenedor
+
+Los tamaños son un aspecto importante del diseño web. En Tailwind CSS, podemos utilizar clases utilitarias para aplicar tamaños a nuestros elementos. Algunas de las clases más comunes son:
+
+- **Ancho:**: Es para cambiar el ancho del elemento. En CSS se utiliza la propiedad `width`, en Tailwind CSS se utiliza la clase `w-{tamaño}`. Por ejemplo, para utilizar un ancho de `1/2` podemos utilizar la clase `w-1/2`.
+
+```html
+<div class="w-1/2 bg-red-500">Este es un ancho de 1/2.</div>
+<div class="w-xs">Este es un ancho de xs.</div>
+```
+
+- **Alto:**: Es para cambiar el alto del elemento. En CSS se utiliza la propiedad `height`, en Tailwind CSS se utiliza la clase `h-{tamaño}`. Por ejemplo, para utilizar un alto de `1/2` podemos utilizar la clase `h-1/2`.
+
+```html
+<div class="h-1/2 bg-red-500">Este es un alto de 1/2.</div>
+<div class="h-xs">Este es un alto de xs.</div>
+```
+
+- **Ancho maximo:**: Es para cambiar el ancho máximo del elemento. En CSS se utiliza la propiedad `max-width`, en Tailwind CSS se utiliza la clase `max-w-{tamaño}`. Por ejemplo, para utilizar un ancho máximo de `1/2` podemos utilizar la clase `max-w-1/2`.
+
+```html
+<div class="max-w-1/2 bg-red-500">Este es un ancho máximo de 1/2.</div>
+<div class="max-w-xs">Este es un ancho máximo de xs.</div>
+```
+
+- **Alto maximo:**: Es para cambiar el alto máximo del elemento. En CSS se utiliza la propiedad `max-height`, en Tailwind CSS se utiliza la clase `max-h-{tamaño}`. Por ejemplo, para utilizar un alto máximo de `1/2` podemos utilizar la clase `max-h-1/2`.
+
+```html
+<div class="max-h-1/2 bg-red-500">Este es un alto máximo de 1/2.</div>
+<div class="max-h-xs">Este es un alto máximo de xs.</div>
+```
+
+- **Ancho minimo:**: Es para cambiar el ancho mínimo del elemento. En CSS se utiliza la propiedad `min-width`, en Tailwind CSS se utiliza la clase `min-w-{tamaño}`. Por ejemplo, para utilizar un ancho mínimo de `1/2` podemos utilizar la clase `min-w-1/2`.
+
+```html
+<div class="min-w-1/2 bg-red-500">Este es un ancho mínimo de 1/2.</div>
+<div class="min-w-xs">Este es un ancho mínimo de xs.</div>
+```
+
+- **Contenedores:**: Es para cambiar el ancho del contenedor. En CSS se utiliza la propiedad `width`, en Tailwind CSS se utiliza la clase `container`. Por ejemplo, para utilizar un contenedor de `1/2` podemos utilizar la clase `container`.
+
+```html
+<div class="container mx-auto">Este es un contenedor.</div>
+```
+
+```html
+<div class="container mx-auto max-w-4xl">Este es un contenedor.</div>
+```
+
+---
+## Sistema de espaciado
+El sistema de espaciado es un aspecto importante del diseño web. En Tailwind CSS, podemos utilizar clases utilitarias para aplicar espaciado a nuestros elementos. Algunas de las clases más comunes son:
+
+- **Margen:**: Es para cambiar el margen del elemento. En CSS se utiliza la propiedad `margin`, en Tailwind CSS se utiliza la clase `m-{tamaño}`. Por ejemplo, para utilizar un margen de `4` podemos utilizar la clase `m-4`.
+
+```html
+<div class="m-4 bg-red-500">Este es un margen de 4.</div>
+<div class="m-2 bg-red-500">Este es un margen de 2.</div>
+<div class="m-8 bg-red-500">Este es un margen de 8.</div>
+```
+
+Margen superior, inferior, izquierdo y derecho:
+
+```html
+<div class="mt-4 bg-red-500">Este es un margen superior de 4.</div>
+<div class="mb-4 bg-red-500">Este es un margen inferior de 4.</div>
+<div class="ml-4 bg-red-500">Este es un margen izquierdo de 4.</div>
+<div class="mr-4 bg-red-500">Este es un margen derecho de 4.</div>
+```
+
+Margen horizontal y vertical:
+
+```html
+<div class="mx-4 bg-red-500">Este es un margen horizontal de 4.</div>
+<div class="my-4 bg-red-500">Este es un margen vertical de 4.</div>
+```
+
+- **Relleno:**: Es para cambiar el relleno del elemento. En CSS se utiliza la propiedad `padding`, en Tailwind CSS se utiliza la clase `p-{tamaño}`. Por ejemplo, para utilizar un relleno de `4` podemos utilizar la clase `p-4`.
+
+```html
+<div class="p-4 bg-red-500">Este es un relleno de 4.</div>
+<div class="p-2 bg-red-500">Este es un relleno de 2.</div>
+<div class="p-8 bg-red-500">Este es un relleno de 8.</div>
+```
+
+---
+## Border y sombras
+
+El borde y las sombras son un aspecto importante del diseño web. En Tailwind CSS, podemos utilizar clases utilitarias para aplicar bordes y sombras a nuestros elementos. Algunas de las clases más comunes son:
+- **Borde:**: Es para cambiar el borde del elemento. En CSS se utiliza la propiedad `border`, en Tailwind CSS se utiliza la clase `border-{tamaño}`. Por ejemplo, para utilizar un borde de `2` podemos utilizar la clase `border-2`.
+
+```html
+<div class="border-2 border-red-500">Este es un borde de 2.</div>
+<div class="border-4 border-red-500">Este es un borde de 4.</div>
+```
+
+Borde superior, inferior, izquierdo y derecho:
+
+```html
+<div class="border-t-2 border-red-500">Este es un borde superior de 2.</div>
+<div class="border-b-2 border-red-500">Este es un borde inferior de 2.</div>
+<div class="border-l-2 border-red-500">Este es un borde izquierdo de 2.</div>
+<div class="border-r-2 border-red-500">Este es un borde derecho de 2.</div>
+```
+
+Borde horizontal y vertical:
+
+```html
+<div class="border-x-2 border-red-500">Este es un borde horizontal de 2.</div>
+<div class="border-y-2 border-red-500">Este es un borde vertical de 2.</div>
+```
+
+- **Radio del borde:**: Es para cambiar el radio del borde del elemento. En CSS se utiliza la propiedad `border-radius`, en Tailwind CSS se utiliza la clase `rounded-{tamaño}`. Por ejemplo, para utilizar un radio de borde de `2` podemos utilizar la clase `rounded-2`.
+
+```html
+<div class="rounded-2 bg-red-500">Este es un radio de borde de 2.</div>
+<div class="rounded-4 bg-red-500">Este es un radio de borde de 4.</div>
+<div class="rounded-full bg-red-500">Este es un radio de borde completo.</div>
+```
+
+Radio de borde superior, inferior, izquierdo y derecho:
+
+```html
+<div class="rounded-t-2 bg-red-500">Este es un radio de borde superior de 2.</div>
+<div class="rounded-b-2 bg-red-500">Este es un radio de borde inferior de 2.</div>
+<div class="rounded-l-2 bg-red-500">Este es un radio de borde izquierdo de 2.</div>
+<div class="rounded-r-2 bg-red-500">Este es un radio de borde derecho de 2.</div>
+``` 
+
+- **Sombras:**: Es para cambiar la sombra del elemento. En CSS se utiliza la propiedad `box-shadow`, en Tailwind CSS se utiliza la clase `shadow-{tamaño}`. Por ejemplo, para utilizar una sombra de `lg` podemos utilizar la clase `shadow-lg`.
+
+```html
+<div class="shadow-lg bg-red-500">Este es una sombra de lg.</div>
+<div class="shadow-md bg-red-500">Este es una sombra de md.</div>
+<div class="shadow-sm bg-red-500">Este es una sombra de sm.</div>
+```
+
+Sombras de diferentes tamaños:
+
+```html
+<div class="shadow-2xl bg-red-500">Este es una sombra de 2xl.</div>
+<div class="shadow-inner bg-red-500">Este es una sombra de inner.</div>
+<div class="shadow-outline bg-red-500">Este es una sombra de outline.</div>
+<div class="shadow-none bg-red-500">Este es una sombra de none.</div>
+```
+
+---
+## Proyecto de sección
+
+Vamos a crear una sección sencilla utilizando Tailwind CSS. Esta sección tendrá un fondo de color, un título, un párrafo y un botón. Utilizaremos las clases utilitarias que hemos aprendido en esta sección.
+
+- En este pequeño proyecto vamos a crear **Tajetas de Servicios** y **Secciones de contenido**. 
+- Primero cremos sección de bienvenida y luego la sección de Servicios.
+- La sección de bienvenida tendrá un fondo de color, un título, un párrafo y un botón. Utilizaremos las clases utilitarias que hemos aprendido en esta sección.
+- La sección de Servicios tendrá un fondo de color, un título, un párrafo y un botón. Utilizaremos las clases utilitarias que hemos aprendido en esta sección.
+
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body class="bg-cyan-200 text-cyan-950">
+    <section class="py-11">
+      <div class="container mx-auto">
+        <h1 class="my-5 text-center text-3xl font-semibold text-cyan-900">Hola, Bienvenido a mí Web</h1>
+        <p class="text-lg text-cyan-700">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates sapiente accusantium iure nemo quaerat a animi, aperiam velit officiis at, dolores et! Quia et eligendi earum adipisci aliquid consequatur modi!</p>
+      </div>
+    </section>
+
+    <section class="bg-cyan-950 py-11">
+      <div class="container mx-auto">
+        <h2 class="mb-4 text-center text-2xl text-cyan-100">Mis Servicios</h2>
+
+        <div>
+          <div class="m-auto w-1/2 rounded-xl bg-cyan-900 p-6 text-center">
+            <div class="mx-auto inline-block rounded-full border-2 border-cyan-500 bg-cyan-200 p-2">
+              <svg class="size-6 stroke-cyan-700">
+                <path fill="currentColor" d="M16.5 12c0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2c0 .37-.03.73-.08 1.08c.69.1 1.33.32 1.92.64c.1-.56.16-1.13.16-1.72c0-5.5-4.5-10-10-10C6.47 2 2 6.5 2 12s4.5 10 10 10c.59 0 1.16-.06 1.72-.16A5.9 5.9 0 0 1 13 19c0-.29.03-.57.07-.85c-.32.63-.67 1.24-1.07 1.81c-.83-1.2-1.5-2.53-1.91-3.96h3.72a5.95 5.95 0 0 1 2.59-2.4c.06-.53.1-1.06.1-1.6M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2zm.82 2H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m6.34 6H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2m.25-9.56c1.84.63 3.37 1.9 4.33 3.56h-2.95a15.7 15.7 0 0 0-1.38-3.56m7.91 12.81L17.75 22L15 19l1.16-1.16l1.59 1.59l3.59-3.59z" />
+              </svg>
+            </div>
+            <h3 class="text-center text-lg text-cyan-100">Desarrollo Web</h3>
+            <p class="my-3 text-sm text-cyan-300">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, natus ullam.</p>
+
+            <a href="" class="text-cyan-500 after:content-['_↗']"> Leer Más </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+```
+
+---
+## Resumen
+
+En esta sección hemos aprendido sobre los fundamentos de Tailwind CSS. Hemos visto cómo utilizar las clases utilitarias para aplicar estilos a nuestros elementos. Hemos creado una sección sencilla utilizando Tailwind CSS. En la siguiente sección, aprenderemos sobre el sistema de diseño de Tailwind CSS y cómo utilizarlo para crear diseños personalizados.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

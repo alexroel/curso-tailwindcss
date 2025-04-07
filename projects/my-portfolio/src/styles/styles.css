@@ -1,0 +1,70 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+    :root {
+        --color-bg-light: #fef3c7; /* Tailwind's bg-amber-50 */
+        --color-bg-dark: #1a202c; /* Tailwind's bg-gray-900 */
+        --color-text-light: #1f2937; /* Tailwind's text-gray-800 */
+        --color-text-dark: #f7fafc; /* Tailwind's text-gray-100 */
+        --color-border-light: #4b5563; /* Tailwind's border-gray-700 */
+        --color-border-dark: #e2e8f0; /* Tailwind's border-gray-300 */
+    }
+
+    .dark {
+        --color-bg-light: #2d3748; /* Tailwind's bg-gray-800 */
+        --color-bg-dark: #1a202c; /* Tailwind's bg-gray-900 */
+        --color-text-light: #f7fafc; /* Tailwind's text-gray-100 */
+        --color-text-dark: #a0aec0; /* Tailwind's text-gray-400 */
+        --color-border-light: #e2e8f0; /* Tailwind's border-gray-300 */
+        --color-border-dark: #4b5563; /* Tailwind's border-gray-700 */
+    }
+}
+
+@layer components {
+    body {
+        background-color: var(--color-bg-light);
+        color: var(--color-text-light);
+    }
+
+    body.dark {
+        background-color: var(--color-bg-dark);
+        color: var(--color-text-dark);
+    }
+
+    #menu {
+        display: none; /* Hidden by default */
+        max-height: 0;
+        overflow: hidden;
+        position: absolute;
+        top: 4rem; /* Adjust to match header height */
+        left: 0;
+        width: 100%;
+        z-index: 100;
+        gap: 1rem; /* Add spacing between grid items */
+        background-color: var(--color-bg-light);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #menu.open {
+        display: grid; /* Use grid layout when open */
+        max-height: 500px; /* Adjust based on content */
+    }
+
+    #menu.dark {
+        background-color: var(--color-bg-dark);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    a.text-2xl {
+        border-color: var(--color-border-light);
+    }
+
+    a.text-2xl.dark {
+        border-color: var(--color-border-dark);
+    }
+}
+
