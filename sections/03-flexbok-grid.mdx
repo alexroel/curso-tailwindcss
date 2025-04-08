@@ -1,0 +1,375 @@
+# Flexbox y Grid con Tailwind
+
+1. [Introducción](#introducción)
+2. [Flexbox](#flexbox)
+3. [Flujos combinados](#flujos-combinados)
+4. [Aliniación de elementos](#aliniación-de-elementos)
+5. [Grid](#grid)
+6. [Justificación de elementos](#justificación-de-elementos)
+7. [Aliniación de elementos](#aliniación-de-elementos)
+8. [Conbinación de justificación y alineación](#conbinación-de-justificación-y-alineación)
+9. [Proyecto de sección](#proyecto-de-sección)
+10. [Resumen](#resumen)
+
+---
+## Introducción
+
+Flexbox y Grid son dos de los sistemas de diseño más potentes que existen. Ambos tienen sus ventajas y desventajas, pero en este curso nos centraremos en cómo usarlos juntos para crear diseños complejos y flexibles.
+Flexbox es un sistema de diseño unidimensional que se utiliza para alinear elementos en una sola dirección, ya sea horizontal o vertical. Por otro lado, Grid es un sistema de diseño bidimensional que se utiliza para crear diseños más complejos y flexibles.
+
+---
+## Flexbox
+
+Flexbox es un sistema de diseño unidimensional que se utiliza para alinear elementos en una sola dirección, ya sea horizontal o vertical. Flexbox es ideal para diseños simples y para alinear elementos en una sola dirección.
+
+Ahora vamos a ver cómo usar Flexbox con Tailwind. Para ello, vamos a crear un contenedor flex y a alinear los elementos dentro de él.
+
+```html
+<div class="flex gap-3 p-3">
+  <div class="w-64 bg-cyan-500">01</div>
+  <div class="w-64 bg-cyan-500">02</div>
+  <div class="w-64 bg-cyan-500">03</div>
+</div>
+```
+
+En este ejemplo, hemos creado un contenedor flex con la clase `flex` y hemos añadido un espacio entre los elementos con la clase `gap-3`. También hemos añadido un relleno al contenedor con la clase `p-3`.
+
+**Dirección de los elementos**: En Tailwind, podemos cambiar la dirección de los elementos dentro del contenedor flex utilizando las clases `flex-row`, `flex-row-reverse`, `flex-col` y `flex-col-reverse`. Por defecto, los elementos se alinean en una fila (`flex-row`). Si queremos que se alineen en una columna, podemos utilizar la clase `flex-col`. También podemos invertir el orden de los elementos utilizando las clases `flex-row-reverse` y `flex-col-reverse`.
+
+```html
+<div class="flex gap-3 p-3">
+  <div class="w-64 bg-cyan-500">01</div>
+  <div class="w-64 bg-cyan-500">02</div>
+  <div class="w-64 bg-cyan-500">03</div>
+</div>
+```
+
+```html
+<div class="flex gap-3 p-3 flex-col-reverse">
+  <div class="w-64 bg-cyan-500">01</div>
+  <div class="w-64 bg-cyan-500">02</div>
+  <div class="w-64 bg-cyan-500">03</div>
+</div>
+```
+
+** Flex Wrap**: Por defecto, los elementos dentro de un contenedor flex no se envuelven. Si queremos que se envuelvan, podemos utilizar la clase `flex-wrap`. También podemos utilizar las clases `flex-wrap-reverse` y `flex-nowrap` para invertir el orden de los elementos o para evitar que se envuelvan.
+
+```html
+<div class="flex gap-3 p-3 flex-wrap">
+  <div class="w-64 bg-cyan-500">01</div>
+  <div class="w-64 bg-cyan-500">02</div>
+  <div class="w-64 bg-cyan-500">03</div>
+</div>
+```
+**Ordenar elementos**: En Tailwind, podemos cambiar el orden de los elementos dentro del contenedor flex utilizando la clase `order`. Por defecto, los elementos tienen un orden de 0. Si queremos que un elemento tenga un orden diferente, podemos utilizar la clase `order-1`, `order-2`, etc. También podemos utilizar la clase `order-last` para que un elemento se coloque al final del contenedor.
+
+```html
+<div class="flex gap-3 p-3 flex-wrap">
+  <div class="w-64 bg-cyan-500 order-3">01</div>
+  <div class="w-64 bg-cyan-500 order-1">02</div>
+  <div class="w-64 bg-cyan-500 order-2">03</div>
+</div>
+```
+
+---
+## Flujos combinados
+
+En blexbox podemos usar flujos combinados, como por jemplo, `felx-basis`, `flex-grow` y `flex-shrink`. Estas propiedades nos permiten controlar el tamaño de los elementos dentro del contenedor flex.
+
+```html
+<div class="flex gap-3 p-3 flex-wrap">
+  <div class="w-64 bg-cyan-500 flex-grow">01</div>
+  <div class="w-64 bg-cyan-500 flex-shrink">02</div>
+  <div class="w-64 bg-cyan-500 flex-basis">03</div>
+</div>
+```
+
+- `flex-grow`: Esta propiedad nos permite controlar el tamaño de los elementos dentro del contenedor flex. Si un elemento tiene la propiedad `flex-grow`, ocupará todo el espacio disponible dentro del contenedor flex. Si varios elementos tienen la propiedad `flex-grow`, se repartirán el espacio disponible entre ellos.
+- `flex-shrink`: Esta propiedad nos permite controlar el tamaño de los elementos dentro del contenedor flex. Si un elemento tiene la propiedad `flex-shrink`, se reducirá su tamaño si el contenedor flex es más pequeño que el tamaño del elemento. Si varios elementos tienen la propiedad `flex-shrink`, se repartirán el espacio disponible entre ellos.
+- `flex-basis`: Esta propiedad nos permite controlar el tamaño de los elementos dentro del contenedor flex. Si un elemento tiene la propiedad `flex-basis`, ocupará el tamaño especificado dentro del contenedor flex. Si varios elementos tienen la propiedad `flex-basis`, se repartirán el espacio disponible entre ellos.
+
+---
+## Aliniación de elementos
+
+En Flexbox podemos alinear los elementos dentro del contenedor flex utilizando las clases `items-start`, `items-end`, `items-center`, `items-baseline` y `items-stretch`. Estas clases nos permiten alinear los elementos en la dirección opuesta a la dirección del flujo.
+
+```html
+<div class="flex items-start ...">
+  <div class="py-4">01</div>
+  <div class="py-12">02</div>
+  <div class="py-8">03</div>
+</div>
+```
+
+Tambien podemos alinar los elementos en la dirección del flujo utilizando las clases `justify-start`, `justify-end`, `justify-center`, `justify-between`, `justify-around` y `justify-evenly`. Estas clases nos permiten alinear los elementos en la dirección del flujo.
+
+```html
+<div class="flex justify-center ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+</div>
+```
+
+También podemos aliniar elementos hijos dentro de un elemento padre utilizando las clases `self-start`, `self-end`, `self-center`, `self-stretch` y `self-auto`. Estas clases nos permiten alinear los elementos en la dirección del flujo.
+
+```html
+<div class="flex gap-3 p-3 flex-wrap h-52">
+  <div class="w-64 bg-cyan-500">01</div>
+  <div class="w-64 bg-cyan-500 self-start">02</div>
+  <div class="w-64 bg-cyan-500 self-center">03</div>
+</div>
+```
+
+---
+## Grid
+
+Grid es un sistema de diseño bidimensional que se utiliza para crear diseños más complejos y flexibles. Grid es ideal para diseños más complejos y para alinear elementos en dos direcciones.
+
+En Tailwind, podemos crear un contenedor grid utilizando la clase `grid`. También podemos utilizar las clases `grid-cols-1`, `grid-cols-2`, `grid-cols-3`, etc. para crear columnas dentro del contenedor grid. Por defecto, los elementos dentro del contenedor grid se alinean en una fila.
+
+```html
+<div class="grid grid-cols-3 gap-3 p-2">
+  <div class="bg-cyan-500">01</div>
+  <div class="bg-cyan-500">02</div>
+  <div class="bg-cyan-500">03</div>
+  <div class="bg-cyan-500">04</div>
+  <div class="bg-cyan-500">05</div>
+  <div class="bg-cyan-500">06</div>
+</div>
+```
+
+**Columnas y filas**: En Tailwind, podemos crear columnas y filas dentro del contenedor grid utilizando las clases `grid-cols-1`, `grid-cols-2`, `grid-cols-3`, etc. para crear columnas y las clases `grid-rows-1`, `grid-rows-2`, `grid-rows-3`, etc. para crear filas. Por defecto, los elementos dentro del contenedor grid se alinean en una fila.
+
+```html
+<div class="grid grid-cols-3 grid-rows-2 gap-3 p-2">
+  <div class="bg-cyan-500">01</div>
+  <div class="bg-cyan-500">02</div>
+  <div class="bg-cyan-500">03</div>
+  <div class="bg-cyan-500">04</div>
+  <div class="bg-cyan-500">05</div>
+  <div class="bg-cyan-500">06</div>
+
+</div>
+```
+
+**Combinar columanas y filas**: En Tailwind, podemos combinar columnas y filas dentro del contenedor grid utilizando las clases `col-span-1`, `col-span-2`, `col-span-3`, etc. para crear columnas y las clases `row-span-1`, `row-span-2`, `row-span-3`, etc. para crear filas. Por defecto, los elementos dentro del contenedor grid se alinean en una fila.
+
+```html
+<div class="grid grid-cols-3 grid-rows-2 gap-3 p-2">
+  <div class="bg-cyan-500 col-span-2 row-span-2">01</div>
+  <div class="bg-cyan-500">02</div>
+  <div class="bg-cyan-500">03</div>
+  <div class="bg-cyan-500">04</div>
+  <div class="bg-cyan-500">05</div>
+  <div class="bg-cyan-500">06</div>
+</div>
+```
+
+---
+## Justificación de elementos
+
+En Grid podemos justificar los elementos dentro del contenedor grid utilizando las clases `justify-start`, `justify-end`, `justify-center`, `justify-between`, `justify-around` y `justify-evenly`. Estas clases nos permiten alinear los elementos en la dirección del flujo.
+
+```html
+<div class="grid grid-cols-3 gap-3 p-2 justify-center">
+  <div class="bg-cyan-500">01</div>
+  <div class="bg-cyan-500">02</div>
+  <div class="bg-cyan-500">03</div>
+  <div class="bg-cyan-500">04</div>
+  <div class="bg-cyan-500">05</div>
+  <div class="bg-cyan-500">06</div>
+</div>
+```
+
+**Justificación de elementos en columnas**: En Grid podemos justificar los elementos dentro del contenedor grid utilizando las clases `justify-items-start`, `justify-items-end`, `justify-items-center`, `justify-items-stretch` y `justify-items-auto`. Estas clases nos permiten alinear los elementos en la dirección del flujo.
+
+```html
+<div class="grid grid-cols-3 gap-3 p-2 justify-items-center">
+  <div class="bg-cyan-500">01</div>
+  <div class="bg-cyan-500">02</div>
+  <div class="bg-cyan-500">03</div>
+  <div class="bg-cyan-500">04</div>
+  <div class="bg-cyan-500">05</div>
+  <div class="bg-cyan-500">06</div>
+</div>
+```
+
+**Justificación de elementos en filas**: En Grid podemos justificar los elementos dentro del contenedor grid utilizando las clases `justify-self-start`, `justify-self-end`, `justify-self-center`, `justify-self-stretch` y `justify-self-auto`. Estas clases nos permiten alinear los elementos en la dirección del flujo.
+
+```html
+<div class="grid grid-cols-3 justify-items-center gap-3 p-2">
+  <div class="p-4 bg-cyan-500 justify-self-end">01</div>
+  <div class="p-4 bg-cyan-500">02</div>
+  <div class="p-4 bg-cyan-500">03</div>
+  <div class="p-4 bg-cyan-500">04</div>
+  <div class="p-4 bg-cyan-500">05</div>
+  <div class="p-4 bg-cyan-500">06</div>
+</div>
+```
+
+---
+## Aliniación de elementos
+
+En Grid podemos alinear los elementos dentro del contenedor grid utilizando las clases `items-start`, `items-end`, `items-center`, `items-baseline` y `items-stretch`. Estas clases nos permiten alinear los elementos en la dirección del flujo.
+
+```html
+<div class="h-screen grid grid-cols-3 gap-3 p-2 items-end">
+  <div class="bg-cyan-500">01</div>
+  <div class="bg-cyan-500">02</div>
+  <div class="bg-cyan-500">03</div>
+  <div class="bg-cyan-500">04</div>
+  <div class="bg-cyan-500">05</div>
+  <div class="bg-cyan-500">06</div>
+</div>
+```
+
+**Aliniación de elementos individuales**: En Grid podemos alinear los elementos dentro del contenedor grid utilizando las clases `self-start`, `self-end`, `self-center`, `self-stretch` y `self-auto`. Estas clases nos permiten alinear los elementos en la dirección del flujo.
+
+```html
+<div class="h-screen grid grid-cols-3 gap-3 p-2 items-end">
+  <div class="bg-cyan-500">01</div>
+  <div class="bg-cyan-500 self-start">02</div>
+  <div class="bg-cyan-500">03</div>
+  <div class="bg-cyan-500">04</div>
+  <div class="bg-cyan-500">05</div>
+  <div class="bg-cyan-500">06</div>
+</div>
+```
+
+** Aliniación de contenido**: En Grid podemos alinear el contenido dentro del contenedor grid utilizando las clases `content-start`, `content-end`, `content-center`, `content-between`, `content-around` y `content-evenly`. Estas clases nos permiten alinear los elementos en la dirección del flujo.
+
+```html
+<div class="h-screen grid grid-cols-3 gap-3 p-2 content-center">
+  <div class="bg-cyan-500">01</div>
+  <div class="bg-cyan-500">02</div>
+  <div class="bg-cyan-500">03</div>
+  <div class="bg-cyan-500">04</div>
+  <div class="bg-cyan-500">05</div>
+  <div class="bg-cyan-500">06</div>
+</div>
+```
+
+---
+## Conbinación de justificación y alineación
+
+En Grid podemos combinar la justificación y la alineación de los elementos dentro del contenedor grid utilizando las clases `place-items-start`, `place-items-end`, `place-items-center`, `place-items-stretch` y `place-items-auto`. Estas clases nos permiten alinear los elementos en la dirección del flujo.
+
+```html
+<div class="h-screen grid grid-cols-3 gap-3 p-2 place-items-center">
+  <div class="bg-cyan-500">01</div>
+  <div class="bg-cyan-500">02</div>
+  <div class="bg-cyan-500">03</div>
+  <div class="bg-cyan-500">04</div>
+  <div class="bg-cyan-500">05</div>
+  <div class="bg-cyan-500">06</div>
+</div>
+```
+
+**Conbinación de justificación y alineación de elementos individuales**: En Grid podemos combinar la justificación y la alineación de los elementos dentro del contenedor grid utilizando las clases `place-self-start`, `place-self-end`, `place-self-center`, `place-self-stretch` y `place-self-auto`. Estas clases nos permiten alinear los elementos en la dirección del flujo.
+
+```html
+<div class="h-screen grid grid-cols-3 gap-3 p-2 place-self-center">
+  <div class="bg-cyan-500">01</div>
+  <div class="bg-cyan-500 place-self-start">02</div>
+  <div class="bg-cyan-500">03</div>
+  <div class="bg-cyan-500">04</div>
+  <div class="bg-cyan-500">05</div>
+  <div class="bg-cyan-500">06</div>
+</div>
+```
+
+---
+## Proyecto de sección
+
+¡Perfecto! Vamos a crear un mini proyecto de Blog de Recetas con un layout de tarjetas para los posts y una barra lateral usando Tailwind CSS.
+
+Vamos a crear un layout de tarjetas para los posts y una barra lateral usando Tailwind CSS. El layout tendrá un contenedor principal que contendrá las tarjetas de los posts y la barra lateral. Las tarjetas de los posts estarán alineadas en una cuadrícula y la barra lateral estará alineada a la derecha.
+
+```html
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog de Recetas</title>
+  </head>
+  <body class="bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-green-600 p-6 text-white shadow">
+      <div class="mx-auto max-w-7xl">
+        <h1 class="text-3xl font-bold">Recetas Deliciosas</h1>
+        <p class="text-sm">Explora nuevas recetas cada semana 🍲</p>
+      </div>
+    </header>
+
+    <!-- Main layout -->
+    <main class="container mx-auto mt-6 grid grid-cols-3 gap-6 p-6">
+      <!-- Posts -->
+      <section class="col-span-2 flex gap-6">
+        <!-- Card 1 -->
+        <article class="overflow-hidden rounded-lg bg-white shadow">
+          <img src="https://placehold.co/400x250" alt="Receta" class="h-48 w-full object-cover" />
+          <div class="p-4">
+            <h2 class="mb-2 text-xl font-semibold">Pasta al Pesto</h2>
+            <p class="text-sm text-gray-600">Una receta fácil y deliciosa de pasta con salsa pesto casera. Ideal para almuerzos rápidos.</p>
+            <button class="mt-4 inline-block text-green-600 hover:underline">Leer más</button>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="overflow-hidden rounded-lg bg-white shadow">
+          <img src="https://placehold.co/400x250" alt="Receta" class="h-48 w-full object-cover" />
+          <div class="p-4">
+            <h2 class="mb-2 text-xl font-semibold">Tacos Mexicanos</h2>
+            <p class="text-sm text-gray-600">Aprende a preparar tacos tradicionales con carne, verduras frescas y salsas caseras.</p>
+            <button class="mt-4 inline-block text-green-600 hover:underline">Leer más</button>
+          </div>
+        </article>
+
+        <!-- Puedes duplicar más tarjetas aquí -->
+      </section>
+
+      <!-- Sidebar -->
+      <aside class="rounded-lg bg-white p-4 shadow">
+        <h3 class="mb-4 text-lg font-bold">Categorías</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="text-green-600 hover:underline">Pastas</a></li>
+          <li><a href="#" class="text-green-600 hover:underline">Mexicana</a></li>
+          <li><a href="#" class="text-green-600 hover:underline">Postres</a></li>
+          <li><a href="#" class="text-green-600 hover:underline">Ensaladas</a></li>
+          <li><a href="#" class="text-green-600 hover:underline">Vegano</a></li>
+        </ul>
+
+        <h3 class="mt-6 mb-2 text-lg font-bold">Newsletter</h3>
+        <form>
+          <input type="email" placeholder="Tu correo" class="mb-2 w-full rounded border p-2" />
+          <button class="w-full rounded bg-green-600 py-2 text-white hover:bg-green-700">Suscribirse</button>
+        </form>
+      </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-6 bg-gray-800 p-4 text-white">
+      <div class="mx-auto max-w-7xl text-center">© 2025 Recetas Deliciosas. Todos los derechos reservados.</div>
+    </footer>
+  </body>
+</html>
+
+```
+En este proyecto, hemos creado un layout de tarjetas para los posts y una barra lateral usando Tailwind CSS. El layout tiene un contenedor principal que contiene las tarjetas de los posts y la barra lateral. Las tarjetas de los posts están alineadas en una cuadrícula y la barra lateral está alineada a la derecha.
+
+---
+## Resumen
+
+Flexbox y Grid son dos de los sistemas de diseño más potentes que existen. Ambos tienen sus ventajas y desventajas, pero en este curso nos centraremos en cómo usarlos juntos para crear diseños complejos y flexibles.
+
+
+
+
+
+
+
+
+
