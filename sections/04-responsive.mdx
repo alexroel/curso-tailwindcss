@@ -1,0 +1,184 @@
+# Diseño responsivo con Tailwind
+
+1. [Introducción](#introducción)
+2. [Mobile First y breakpoints](#mobile-first-y-breakpoints)
+3. [Clases condicionales por tamaño](#clases-condicionales-por-tamaño)
+4. [Visibilidad](#visibilidad)
+5. [Menejo de imágenes](#manejo-de-imágenes)
+6. [Consulta de contenedores](#consulta-de-contenedores)
+7. [Proyecto de secciónes](#proyecto-de-secciones)
+8. [Resumen](#resumen)
+
+---
+## Introducción
+
+Tailwind CSS es un framework CSS que permite crear interfaces de usuario de manera rápida y eficiente. A diferencia de otros frameworks como Bootstrap o Foundation, Tailwind CSS no proporciona componentes predefinidos, sino que se basa en clases utilitarias que permiten construir diseños personalizados.
+
+---
+## Mobile First y breakpoints
+
+El diseño responsivo es una técnica que permite adaptar el diseño de una página web a diferentes tamaños de pantalla. Tailwind CSS utiliza un enfoque "mobile first", lo que significa que las clases se aplican primero a dispositivos móviles y luego se pueden modificar para pantallas más grandes.
+
+- `sm:`: Pantallas pequeñas (≥ 640px)
+- `md:`: Pantallas medianas (≥ 768px)
+- `lg:`: Pantallas grandes (≥ 1024px)
+- `xl:`: Pantallas extra grandes (≥ 1280px)
+- `2xl:`: Pantallas extra grandes (≥ 1536px)
+
+- `max-sm:`: Pantallas pequeñas (≤ 639px)
+- `max-md:`: Pantallas medianas (≤ 767px)
+- `max-lg:`: Pantallas grandes (≤ 1023px)
+- `max-xl:`: Pantallas extra grandes (≤ 1279px)
+- `max-2xl:`: Pantallas extra grandes (≤ 1535px)
+
+```html
+<div class="h-32 bg-amber-500 p-5 sm:bg-green-400 lg:bg-blue-500 xl:bg-red-500">
+  <p class="text-center sm:hidden">Pantalla Pequeña</p>
+  <p class="hidden text-center sm:block lg:hidden">Pantalla Mediana</p>
+  <p class="hidden text-center lg:max-xl:block">Pantalla Grande</p>
+  <p class="hidden text-center xl:block">Pantalla My Grande</p>
+</div>
+```
+
+---
+## Clases condicionales por tamaño
+
+Las clases condicionales permiten aplicar estilos específicos según el tamaño de la pantalla. Por ejemplo, puedes mostrar un elemento solo en pantallas pequeñas o grandes.
+
+```html
+<div class="h-32 bg-amber-500 p-5 sm:bg-green-400 lg:bg-blue-500 xl:bg-red-500">
+  <p class="text-center sm:hidden">Pantalla Pequeña</p>
+  <p class="hidden text-center sm:block lg:hidden">Pantalla Mediana</p>
+  <p class="hidden text-center lg:max-xl:block">Pantalla Grande</p>
+  <p class="hidden text-center xl:block">Pantalla My Grande</p>
+</div>
+```
+
+---
+## Visibilidad
+
+La visibilidad de los elementos se puede controlar utilizando las clases `hidden`, `block`, `inline`, `inline-block`, `flex`, etc. Estas clases permiten mostrar u ocultar elementos según el tamaño de la pantalla.
+
+```html
+<div class="h-32 bg-amber-500 p-5 sm:bg-green-400 lg:bg-blue-500 xl:bg-red-500">
+  <p class="text-center sm:hidden">Pantalla Pequeña</p>
+  <p class="hidden text-center sm:block lg:hidden">Pantalla Mediana</p>
+  <p class="hidden text-center lg:max-xl:block">Pantalla Grande</p>
+  <p class="hidden text-center xl:block">Pantalla My Grande</p>
+
+</div>
+```
+
+---
+## Manejo de imágenes
+
+Las imágenes también pueden ser adaptadas a diferentes tamaños de pantalla utilizando las clases de Tailwind CSS. Puedes utilizar clases como `object-cover`, `object-contain`, `object-fill`, etc. para controlar cómo se comporta la imagen dentro de su contenedor.
+
+```html
+<img src="https://placehold.co/300" alt="Imagen de ejemplo" class="h-auto w-full object-cover sm:object-contain lg:object-fill xl:object-scale-down" />
+```
+
+
+- `object-cover`: La imagen cubre todo el contenedor, recortando si es necesario.
+- `object-contain`: La imagen se ajusta dentro del contenedor sin recortarse.
+- `object-fill`: La imagen se estira para llenar el contenedor.
+- `object-scale-down`: La imagen se escala hacia abajo para ajustarse al contenedor, pero no se estira.
+- `object-none`: La imagen no se ajusta al contenedor y mantiene su tamaño original.
+- `object-left`: La imagen se alinea a la izquierda del contenedor.
+- `object-center`: La imagen se alinea al centro del contenedor.
+- `object-right`: La imagen se alinea a la derecha del contenedor.
+- `object-top`: La imagen se alinea en la parte superior del contenedor.
+- `object-bottom`: La imagen se alinea en la parte inferior del contenedor.
+- `object-left-top`: La imagen se alinea en la parte superior izquierda del contenedor.
+- `object-left-bottom`: La imagen se alinea en la parte inferior izquierda del contenedor.
+- `object-right-top`: La imagen se alinea en la parte superior derecha del contenedor.
+- `object-right-bottom`: La imagen se alinea en la parte inferior derecha del contenedor.
+- `object-[position]`: Permite definir una posición personalizada para la imagen dentro del contenedor.
+
+```html
+<img src="https://placehold.co/300" alt="Imagen de ejemplo" class="h-auto w-full object-cover sm:object-contain lg:object-fill xl:object-scale-down" />
+```
+
+---
+## Consulta de contenedores
+
+La consulta de contenedores permite aplicar estilos a un elemento según el tamaño de su contenedor. Esto es útil cuando se desea que un elemento responda al tamaño de su contenedor padre en lugar del tamaño de la pantalla.
+
+`@container`: Esta clase se utiliza para habilitar la consulta de contenedores en un elemento. Se debe aplicar a un elemento padre y luego se pueden utilizar clases como `@apply` para aplicar estilos a los elementos hijos según el tamaño del contenedor.
+
+```html
+<div class="@container">
+  <div class="flex flex-col gap-3 bg-amber-200 p-12 @md:flex-row">
+    <p>Hola Como estas</p>
+    <p>Otro mensaje</p>
+  </div>
+</div>
+```
+
+---
+## Proyecto de secciones
+
+Mini proyecto de secciones para practicar el diseño responsivo con Tailwind CSS. El proyecto consiste en crear una página web que contenga diferentes secciones, cada una con un diseño diferente y adaptado a diferentes tamaños de pantalla.
+
+
+```html
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hero + Services</title>
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <header class="bg-white p-6 text-center shadow">
+      <h1 class="text-3xl font-bold">Mini Proyecto Responsivo</h1>
+    </header>
+
+    <!-- Hero -->
+    <section class="bg-gradient-to-r from-teal-500 to-cyan-500 p-8 text-white">
+      <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-8 md:flex-row">
+        <!-- Texto -->
+        <div class="flex-1 space-y-6 text-center lg:text-left">
+          <h2 class="text-4xl font-bold">Bienvenido a Nuestro Sitio</h2>
+          <p class="text-lg">Ofrecemos soluciones adaptativas para todos los dispositivos</p>
+          <button class="rounded-lg bg-white px-6 py-2 font-semibold text-teal-600 transition hover:bg-gray-100">Contáctanos</button>
+        </div>
+
+        <!-- Imagen -->
+        <div class="flex-1">
+          <img src="https://placehold.co/300" alt="Imagen de ejemplo" class="mx-auto rounded-xl shadow-lg" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Servicios con container queries -->
+    <section class="p-8">
+      <div class="mx-auto max-w-6xl">
+        <h2 class="mb-6 text-center text-2xl font-bold">Nuestros Servicios</h2>
+        <div class="container grid gap-6 sm:grid-cols-2 lg:grid-cols-3" style="container-type: inline-size;">
+          <div class="@container rounded-lg bg-white p-6 text-center shadow">
+            <div class="mb-4 text-3xl text-teal-600">🌐</div>
+            <h3 class="mb-2 text-xl font-semibold">Diseño Web</h3>
+            <p class="text-sm text-gray-600 @lg:text-base">Diseños modernos, rápidos y adaptativos.</p>
+          </div>
+          <div class="@container rounded-lg bg-white p-6 text-center shadow">
+            <div class="mb-4 text-3xl text-cyan-600">⚙️</div>
+            <h3 class="mb-2 text-xl font-semibold">Desarrollo</h3>
+            <p class="text-sm text-gray-600 @lg:text-base">Aplicaciones web robustas y eficientes.</p>
+          </div>
+          <div class="@container rounded-lg bg-white p-6 text-center shadow">
+            <div class="mb-4 text-3xl text-indigo-600">📈</div>
+            <h3 class="mb-2 text-xl font-semibold">SEO & Marketing</h3>
+            <p class="text-sm text-gray-600 @lg:text-base">Mejora tu presencia en línea con estrategias efectivas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+```
+
+---
+## Resumen
+
+En este capítulo, hemos aprendido sobre el diseño responsivo con Tailwind CSS. Hemos visto cómo utilizar clases condicionales para adaptar el diseño a diferentes tamaños de pantalla, cómo manejar imágenes y cómo utilizar consultas de contenedores. También hemos creado un mini proyecto para practicar lo aprendido.
