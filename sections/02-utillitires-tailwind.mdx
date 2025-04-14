@@ -1,4 +1,4 @@
-# Fundamentos de Tailwind CSS
+# Estilos con clases de utilidad
 
 1. [Introducción](#introduccion)
 2. [Tipografía](#tipografia)
@@ -12,9 +12,7 @@
 ---
 ## Introducción
 
-En esta sección, aprenderemos sobre los fundamentos de Tailwind CSS. Veremos cómo utilizar las clases utilitarias para crear diseños personalizados y cómo aplicar estilos a los elementos de una página web.
-
-Para esto vamos seguir trabajando en nuestro proyecto de `mi-portafolio` y vamos a crear una página de inicio sencilla utilizando Tailwind CSS.
+En esta sección aprenderemos sobre los estilos con clases de utilidad. Tailwind CSS es un framework CSS que permite crear interfaces de usuario de manera rápida y eficiente. A diferencia de otros frameworks como Bootstrap o Foundation, Tailwind CSS no proporciona componentes predefinidos, sino que se basa en clases utilitarias que permiten construir diseños personalizados.
 
 ---
 ## Tipografía
@@ -316,42 +314,69 @@ Vamos a crear una sección sencilla utilizando Tailwind CSS. Esta sección tendr
 
 ```html
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Hola Mundo - TailwindCSS 4</title>
   </head>
-  <body class="bg-cyan-200 text-cyan-950">
-    <section class="py-11">
-      <div class="container mx-auto">
-        <h1 class="my-5 text-center text-3xl font-semibold text-cyan-900">Hola, Bienvenido a mí Web</h1>
-        <p class="text-lg text-cyan-700">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates sapiente accusantium iure nemo quaerat a animi, aperiam velit officiis at, dolores et! Quia et eligendi earum adipisci aliquid consequatur modi!</p>
-      </div>
-    </section>
+  <body class="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 font-sans text-white">
+    <header class="py-10 text-center">
+      <h1 class="mb-6 text-5xl font-bold">
+        <span class="relative inline-block p-2 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-emerald-400">
+          <span class="relative">¡Hola Mundo!</span>
+        </span>
+      </h1>
+      <p class="mx-auto max-w-xl text-lg text-slate-700">Una frase clásica con la que casi todos los programadores comienzan su viaje en el mundo del código.</p>
+    </header>
 
-    <section class="bg-cyan-950 py-11">
-      <div class="container mx-auto">
-        <h2 class="mb-4 text-center text-2xl text-cyan-100">Mis Servicios</h2>
+    <main class="mx-auto max-w-4xl space-y-16 px-6">
+      <!-- ¿Qué es "Hola Mundo"? -->
+      <section class="rounded-xl border border-white/10 bg-white/5 p-8 shadow-lg">
+        <h2 class="mb-4 text-3xl font-semibold text-emerald-500">¿Qué significa "Hola Mundo"?</h2>
+        <p class="leading-relaxed text-slate-700">"Hola Mundo" es una expresión tradicional utilizada como el primer programa que se escribe al aprender un nuevo lenguaje de programación. Sirve como una prueba para asegurarse de que el entorno de desarrollo esté funcionando correctamente.</p>
+      </section>
 
-        <div>
-          <div class="m-auto w-1/2 rounded-xl bg-cyan-900 p-6 text-center">
-            <div class="mx-auto inline-block rounded-full border-2 border-cyan-500 bg-cyan-200 p-2">
-              <svg class="size-6 stroke-cyan-700">
-                <path fill="currentColor" d="M16.5 12c0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2c0 .37-.03.73-.08 1.08c.69.1 1.33.32 1.92.64c.1-.56.16-1.13.16-1.72c0-5.5-4.5-10-10-10C6.47 2 2 6.5 2 12s4.5 10 10 10c.59 0 1.16-.06 1.72-.16A5.9 5.9 0 0 1 13 19c0-.29.03-.57.07-.85c-.32.63-.67 1.24-1.07 1.81c-.83-1.2-1.5-2.53-1.91-3.96h3.72a5.95 5.95 0 0 1 2.59-2.4c.06-.53.1-1.06.1-1.6M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2zm.82 2H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m6.34 6H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2m.25-9.56c1.84.63 3.37 1.9 4.33 3.56h-2.95a15.7 15.7 0 0 0-1.38-3.56m7.91 12.81L17.75 22L15 19l1.16-1.16l1.59 1.59l3.59-3.59z" />
-              </svg>
-            </div>
-            <h3 class="text-center text-lg text-cyan-100">Desarrollo Web</h3>
-            <p class="my-3 text-sm text-cyan-300">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, natus ullam.</p>
+      <!-- Origen -->
+      <section class="rounded-xl border border-white/10 bg-white/5 p-8 shadow-lg">
+        <h2 class="mb-4 text-3xl font-semibold text-emerald-500">¿De dónde viene?</h2>
+        <p class="leading-relaxed text-slate-700">El primer uso conocido de "Hello, World!" fue en un libro de Brian Kernighan sobre el lenguaje C en 1978. Desde entonces, se ha convertido en una tradición entre programadores de todo el mundo.</p>
+      </section>
 
-            <a href="" class="text-cyan-500 after:content-['_↗']"> Leer Más </a>
+      <!-- Ejemplos en diferentes lenguajes -->
+      <section class="rounded-xl border border-white/10 bg-white/5 p-8 shadow-lg">
+        <h2 class="mb-6 text-3xl font-semibold text-emerald-500">Ejemplos en distintos lenguajes</h2>
+        <div class="grid gap-6 font-mono text-sm text-emerald-400 md:grid-cols-2">
+          <div class="rounded-lg bg-slate-900 p-4">
+            <p class="mb-2">// JavaScript</p>
+            <code>console.log("Hola Mundo");</code>
+          </div>
+
+          <div class="rounded-lg bg-slate-900 p-4">
+            <p class="mb-2"># Python</p>
+            <code>print("Hola Mundo")</code>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <!-- Importancia -->
+      <section class="rounded-xl border border-white/10 bg-white/5 p-8 shadow-lg">
+        <h2 class="mb-4 text-3xl font-semibold text-emerald-500">¿Por qué es tan importante?</h2>
+        <p class="leading-relaxed text-slate-700">Aunque puede parecer simple, escribir "Hola Mundo" simboliza el inicio de un nuevo camino. Significa que lograste configurar correctamente tu entorno, entender lo básico de la sintaxis y ejecutar tu primer programa.</p>
+      </section>
+
+      <!-- CTA -->
+      <section class="space-y-4 py-10 text-center">
+        <h2 class="text-2xl font-semibold text-emerald-500">¿Listo para escribir tu propio "Hola Mundo"?</h2>
+        <p class="text-slate-700">¡Elige un lenguaje, abre tu editor y comienza a programar!</p>
+        <a href="https://www.w3schools.com/" target="_blank" class="inline-block rounded-full bg-emerald-500 px-6 py-3 font-bold text-white transition hover:bg-emerald-600">Aprende a programar</a>
+      </section>
+    </main>
+
+    <footer class="border-t py-6 text-center text-sm text-slate-500">© 2025 - Proyecto educativo creado con ❤️ y Tailwind CSS 4.</footer>
   </body>
 </html>
+
 ```
 
 ---
