@@ -3,9 +3,9 @@
 1. [Introducción](#introduccion)
 2. [¿Qué es Tailwind CSS?](#que-es-tailwind-css)
 3. [Diferencias entre CSS y Tailwind CSS](#diferencias-entre-css-y-tailwind-css)
-4. [Entorno de desarrollo](#entorno-de-desarrollo)
-5. [Instalación de Tailwind CSS](#instalacion-de-tailwind-css)
-6. [Mi primer website](#mi-primer-website)
+4. [Uso de Playground](#uso-de-playground)
+5. [Entorno de desarrollo](#entorno-de-desarrollo)
+6. [Instalación de Tailwind CLI](#instalacion-de-tailwind-cli)
 7. [Configuración de proceso de compilación](#configuracion-de-proceso-de-compilacion)
 8. [Resumen](#resumen)
 
@@ -30,23 +30,44 @@ De esta manera, Tailwind CSS permite crear diseños personalizados de manera má
 
 Ejemplo de CSS:
 ```css
-/* Estilo personalizado para un botón */
-.btn {
-  background-color: #3490dc;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  font-size: 1rem;
+body {
+  padding: 40px;
 }
+
+.btn {
+    background-color: rgb(97, 123, 255); /* oklch(62.3% .214 259.815) */
+    color: white;
+    padding: 8px 16px;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  .btn:hover {
+    background-color: rgb(85, 110, 255); /* oklch(48.8% .243 264.376) */
+  }
 ```
 
 Ejemplo de Tailwind CSS:
 ```html
 <!-- Botón con clases utilitarias de Tailwind CSS -->
-<button class="bg-blue-500 text-white py-2 px-4 rounded text-lg">Botón</button>
+<button class="bg-blue-500 text-white py-2 px-4 rounded text-lg cursor-pointer hover:bg-blue-300">Botón</button>
 ```
 
 Como se puede ver, en el ejemplo de Tailwind CSS se utilizan clases utilitarias para aplicar estilos al botón, lo que permite crear diseños personalizados de manera más rápida y eficiente.
+
+---
+## Uso de Playground
+
+Para empezar a trabajar con Tailwind CSS, puedes usar el [Playground de Tailwind CSS](https://play.tailwindcss.com/). Este es un entorno en línea que te permite experimentar con Tailwind CSS sin necesidad de instalar nada en tu computadora.
+
+Otra forma de usar Tailwind CSS es a través de un CDN (Content Delivery Network). Esto te permite incluir Tailwind CSS en tu proyecto sin necesidad de instalarlo localmente. Para hacer esto, solo necesitas agregar el siguiente enlace en la sección `<head>` de tu archivo HTML:
+
+```html
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+```
+
+Esto cargará la última versión de Tailwind CSS desde el CDN y podrás usarlo en tu proyecto sin necesidad de instalarlo localmente.
 
 ---
 ## Entorno de desarrollo
@@ -55,8 +76,16 @@ Para empezar a trabajar con Tailwind CSS, es necesario tener un entorno de desar
 
 Tambine un editor de código como Visual Studio Code, que es un editor de código gratuito y muy popular entre los desarrolladores. Visual Studio Code tiene una gran cantidad de extensiones y características que lo hacen ideal para trabajar con Tailwind CSS.
 
+- [Node.js](https://nodejs.org/en/download/)
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Extensiones recomendadas para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+    - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode): Formateador de código que permite mantener un estilo de código consistente en todo el proyecto.
+    - [Live Preview](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer): Extensión que permite ver los cambios en tiempo real en el navegador mientras se edita el código.
+    - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradgashler.tailwindcss-intellisense): Extensión que proporciona autocompletado y sugerencias para las clases de Tailwind CSS.
+
+
 ---
-## Instalación de Tailwind CSS
+## Instalación de Tailwind CLI
 
 Para instalar Tailwind CSS, primero debes crear un nuevo proyecto de Node.js. Puedes hacer esto ejecutando el siguiente comando en la terminal:
 
@@ -75,38 +104,6 @@ npm install tailwindcss @tailwindcss/cli
 ```
 
 Esto instalará Tailwind CSS y su CLI (interfaz de línea de comandos) en tu proyecto.
-
-Otra forma mas rapida de instalar Tailwind CSS es usando el CDN. Puedes hacer esto agregando el siguiente enlace en la sección `<head>` de tu archivo HTML:
-
-```html
-<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-```
-
-Ahora si tenemos instalado Tailwind CSS y podemos empezar a usarlo en nuestro proyecto.
-
----
-## Mi primer website
-
-Si usamos el CDN, podemos empezar a usar Tailwind CSS en nuestro proyecto sin necesidad de configurar un entorno de desarrollo. Solo necesitamos crear un archivo HTML y agregar el enlace al CDN en la sección `<head>`.
-
-Este archivo vamos crear en la carpeta `src` y lo llamaremos `index.html`. El contenido de este archivo será el siguiente:
-    
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi primer website con Tailwind CSS</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-</head>
-
-<body>
-    <h1 class="text-3xl font-bold text-center mt-10">Hola, mundo!</h1>
-    <p class="text-center mt-5">Este es mi primer website con Tailwind CSS.</p>
-</body>
-</html>
-```
 
 Si estamos usando el CLI, debemos crear un archivo CSS y agregar las directivas de Tailwind CSS. Puedes hacer esto creando un archivo llamado `src/input.css` y agregando lo siguiente:
 
@@ -140,8 +137,8 @@ Luego, debes crear un archivo HTML y agregar el enlace al archivo CSS en la secc
 ```
 
 Si abrimos el archivo `index.html` en el navegador, deberíamos ver un mensaje de bienvenida con un título y un párrafo centrados en la página.
----
 
+---
 ## Configuración de proceso de compilación
 
 Para no estar ejecutando el comando de compilación cada vez que hagamos un cambio en el archivo CSS, podemos configurar un proceso de compilación automático. Esto se puede hacer usando una herramienta como `npm scripts` o `Gulp`.
