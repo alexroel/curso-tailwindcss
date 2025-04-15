@@ -1,13 +1,18 @@
 # Estilos con clases de utilidad
 
 1. [Introducción](#introduccion)
-2. [Tipografía](#tipografia)
-3. [Colores y fondo](#colores-y-fondo)
-4. [Tamaños y contenedor](#tamano-y-contenedor)
-5. [Sistema de espaciado](#sistema-de-espaciado)
-6. [Border y sombras](#border-y-sombras)
-7. [Proyecto de sección](#proyecto-de-seccion)
-7. [Resumen](#resumen)
+2. [Explorando la documentación](#explorando-la-documentacion)
+3. [Estructura de un proyecto](#estructura-de-un-proyecto)
+4. [Tipografía](#tipografia)
+5. [Estilos de listas](#estilos-de-listas)
+6. [Espaciados](#espaciados)
+7. [Tamaños y dimensiones](#tamanyos-y-dimensiones)
+8. [Border y sombras](#border-y-sombras)
+9. [Backgrounds](#backgrounds)
+10. [Flexbox](#flexbox)
+11. [Grid](#grid)
+12. [Práctica con Flexbox y Grid](#practica-con-flexbox-y-grid)
+13. [Resumen](#resumen)
 
 ---
 ## Introducción
@@ -15,302 +20,12 @@
 En esta sección aprenderemos sobre los estilos con clases de utilidad. Tailwind CSS es un framework CSS que permite crear interfaces de usuario de manera rápida y eficiente. A diferencia de otros frameworks como Bootstrap o Foundation, Tailwind CSS no proporciona componentes predefinidos, sino que se basa en clases utilitarias que permiten construir diseños personalizados.
 
 ---
-## Tipografía
+## Explorando la documentación
 
-La tipografía es un aspecto importante del diseño web. En Tailwind CSS, podemos utilizar clases utilitarias para aplicar estilos de tipografía a nuestros elementos. Algunas de las clases más comunes son:
 
-**Fuente del texto:**: Es para camabiar la fuente del texto. En CSS se utiliza la propiedad `font-family`, en Tailwind CSS se utiliza la clase `font-{fuente}`. Por ejemplo, para utilizar la fuente `sans` podemos utilizar la clase `font-sans`.
-
-```html
-<p class="font-sans">Este es un texto con fuente sans-serif.</p>
-```
-```html
-<p class="font-serif">Este es un texto con fuente serif.</p>
-```
-```html
-<p class="font-mono">Este es un texto con fuente monoespaciada.</p>
-```
-
-**Tamaño del texto:**: Es para cambiar el tamaño del texto. En CSS se utiliza la propiedad `font-size`, en Tailwind CSS se utiliza la clase `text-{tamaño}`. Por ejemplo, para utilizar un tamaño de texto de `2xl` podemos utilizar la clase `text-2xl`. Estas clases de utilidad es desde `text-xs` hasta `text-9xl`. 
-
-- `text-xs`: 0.75rem (12px)
-- `text-9xl`: 5.625rem (90px)
-
-```html
-<h1 class="text-2xl">Hola Mundo</h1>
-
-<p class="text-sm">Este es un texto pequeño.</p>
-<p class="text-base">Este es un texto base.</p>
-```
-
-- **Estilo del texto:**: Es para cambiar el estilo del texto. En CSS se utiliza la propiedad `font-style`, en Tailwind CSS se utiliza la clase `italic` o `not-italic`. Por ejemplo, para utilizar un estilo de texto `italic` podemos utilizar la clase `italic`.
-
-```html
-<p class="italic">Este es un texto en cursiva.</p>
-```
-
-- **Negrita:**: Es para cambiar el estilo del texto. En CSS se utiliza la propiedad `font-weight`, en Tailwind CSS se utiliza la clase `font-bold` o `font-normal`. Por ejemplo, para utilizar un estilo de texto `bold` podemos utilizar la clase `font-bold`.
-
-```html
-<h1 class="text-2xl font-bold">Hola Mundo</h1>
-<p class="font-normal">Este es un texto normal.</p>
-```
-
-- **Subrayado:**: Es para cambiar el estilo del texto. En CSS se utiliza la propiedad `text-decoration`, en Tailwind CSS se utiliza la clase `underline` o `no-underline`. Por ejemplo, para utilizar un estilo de texto `underline` podemos utilizar la clase `underline`.
-
-```html
-<p class="underline">Este es un texto subrayado.</p>
-<p class="no-underline">Este es un texto sin subrayado.</p>
-```
-
-- **Transformación del texto:**: Es para cambiar el estilo del texto. En CSS se utiliza la propiedad `text-transform`, en Tailwind CSS se utiliza la clase `uppercase`, `lowercase` o `capitalize`. Por ejemplo, para utilizar un estilo de texto `uppercase` podemos utilizar la clase `uppercase`.
-
-```html
-<p class="uppercase">Este es un texto en mayúsculas.</p>
-<p class="lowercase">Este es un texto en minúsculas.</p>
-<p class="capitalize">Este es un texto con la primera letra en mayúscula.</p>
-```
-
-- **Aliniamiento del texto:**: Es para cambiar el estilo del texto. En CSS se utiliza la propiedad `text-align`, en Tailwind CSS se utiliza la clase `text-left`, `text-center` o `text-right`. Por ejemplo, para utilizar un estilo de texto `center` podemos utilizar la clase `text-center`.
-
-```html
-<p class="text-left">Este es un texto alineado a la izquierda.</p>
-<p class="text-center">Este es un texto alineado al centro.</p>
-<p class="text-right">Este es un texto alineado a la derecha.</p>
-```
-
-- **Espaciado entre letras:**: Es para cambiar el estilo del texto. En CSS se utiliza la propiedad `letter-spacing`, en Tailwind CSS se utiliza la clase `tracking-{espaciado}`. Por ejemplo, para utilizar un espaciado de letras de `tight` podemos utilizar la clase `tracking-tight`.
-
-```html
-<p class="tracking-tight">Este es un texto con espaciado de letras ajustado.</p>
-<p class="tracking-normal">Este es un texto con espaciado de letras normal.</p>
-<p class="tracking-wide">Este es un texto con espaciado de letras amplio.</p>
-```
-
-- **Contenido de After y Before:**: Es para cambiar el estilo del texto. En CSS se utiliza la propiedad `content`, en Tailwind CSS se utiliza la clase `before:content-{contenido}` o `after:content-{contenido}`. Por ejemplo, para utilizar un contenido de `Hello` podemos utilizar la clase `before:content-['Hello']`.
-
-```html
-<p>Higher resolution means more than just a better-quality image. With a
-Retina 6K display, <a class="text-blue-600 after:content-['_↗']" href="...">
-Pro Display XDR</a> gives you nearly 40 percent more screen real estate than
-a 5K display.</p>
-```
 
 ---
-## Colores y fondo
-Los colores son un aspecto importante del diseño web. En Tailwind CSS, podemos utilizar clases utilitarias para aplicar colores a nuestros elementos. Algunas de las clases más comunes son: 
-
-Tailwind CSS tiene una paleta de colores predeterminada que podemos utilizar en nuestros proyectos. Esta paleta incluye colores como `red`, `green`, `blue`, `yellow`, `purple`, `pink`, entre otros. Cada color tiene diferentes tonalidades, que van desde `50` hasta `900`. Por ejemplo, para utilizar el color `red` con una tonalidad de `500`, podemos utilizar la clase `bg-red-500`.
-
-```html
-<div class="bg-red-500 text-white p-4">Este es un fondo rojo con texto blanco.</div>
-```
-
-```html
-<div class="bg-green-500 text-white p-4">Este es un fondo verde con texto blanco.</div>
-```
-
-```html
-<div class="bg-blue-500 text-white p-4">Este es un fondo azul con texto blanco.</div>
-```
-
-- **Color del texto:**: Es para cambiar el color del texto. En CSS se utiliza la propiedad `color`, en Tailwind CSS se utiliza la clase `text-{color}`. Por ejemplo, para utilizar un color de texto `red` podemos utilizar la clase `text-red-500`.
-
-```html
-<p class="text-red-500">Este es un texto rojo.</p>
-<p class="text-green-500">Este es un texto verde.</p>
-<p class="text-blue-500">Este es un texto azul.</p>
-```
-
-- **Color de fondo:**: Es para cambiar el color de fondo. En CSS se utiliza la propiedad `background-color`, en Tailwind CSS se utiliza la clase `bg-{color}`. Por ejemplo, para utilizar un color de fondo `red` podemos utilizar la clase `bg-red-500`.
-
-```html
-<div class="bg-red-500">Este es un fondo rojo.</div>
-<div class="bg-green-500">Este es un fondo verde.</div>
-<div class="bg-blue-500">Este es un fondo azul.</div>
-```
-
-- **Color de borde:**: Es para cambiar el color del borde. En CSS se utiliza la propiedad `border-color`, en Tailwind CSS se utiliza la clase `border-{color}`. Por ejemplo, para utilizar un color de borde `red` podemos utilizar la clase `border-red-500`.
-
-```html
-<div class="border-2 border-red-500">Este es un borde rojo.</div>
-<div class="border-2 border-green-500">Este es un borde verde.</div>
-<div class="border-2 border-blue-500">Este es un borde azul.</div>
-```
-
-- **Color de sombra:**: Es para cambiar el color de la sombra. En CSS se utiliza la propiedad `box-shadow`, en Tailwind CSS se utiliza la clase `shadow-{color}`. Por ejemplo, para utilizar un color de sombra `red` podemos utilizar la clase `shadow-red-500`.
-
-```html
-<div class="shadow-lg shadow-red-500">Este es un borde rojo.</div>
-<div class="shadow-lg shadow-green-500">Este es un borde verde.</div>
-<div class="shadow-lg shadow-blue-500">Este es un borde azul.</div>
-```
-
-- **Colore de SVG**: Es para cambiar el color de un SVG. En CSS se utiliza la propiedad `stroke`, en Tailwind CSS se utiliza la clase `stroke-{color}`. Por ejemplo, para utilizar un color de borde `red` podemos utilizar la clase `stroke-red-500`.
-
-```html
-
-<svg class="w-6 h-6 stroke-red-500" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-</svg>
-```
-
----
-## Tamaños y contenedor
-
-Los tamaños son un aspecto importante del diseño web. En Tailwind CSS, podemos utilizar clases utilitarias para aplicar tamaños a nuestros elementos. Algunas de las clases más comunes son:
-
-- **Ancho:**: Es para cambiar el ancho del elemento. En CSS se utiliza la propiedad `width`, en Tailwind CSS se utiliza la clase `w-{tamaño}`. Por ejemplo, para utilizar un ancho de `1/2` podemos utilizar la clase `w-1/2`.
-
-```html
-<div class="w-1/2 bg-red-500">Este es un ancho de 1/2.</div>
-<div class="w-xs">Este es un ancho de xs.</div>
-```
-
-- **Alto:**: Es para cambiar el alto del elemento. En CSS se utiliza la propiedad `height`, en Tailwind CSS se utiliza la clase `h-{tamaño}`. Por ejemplo, para utilizar un alto de `1/2` podemos utilizar la clase `h-1/2`.
-
-```html
-<div class="h-1/2 bg-red-500">Este es un alto de 1/2.</div>
-<div class="h-xs">Este es un alto de xs.</div>
-```
-
-- **Ancho maximo:**: Es para cambiar el ancho máximo del elemento. En CSS se utiliza la propiedad `max-width`, en Tailwind CSS se utiliza la clase `max-w-{tamaño}`. Por ejemplo, para utilizar un ancho máximo de `1/2` podemos utilizar la clase `max-w-1/2`.
-
-```html
-<div class="max-w-1/2 bg-red-500">Este es un ancho máximo de 1/2.</div>
-<div class="max-w-xs">Este es un ancho máximo de xs.</div>
-```
-
-- **Alto maximo:**: Es para cambiar el alto máximo del elemento. En CSS se utiliza la propiedad `max-height`, en Tailwind CSS se utiliza la clase `max-h-{tamaño}`. Por ejemplo, para utilizar un alto máximo de `1/2` podemos utilizar la clase `max-h-1/2`.
-
-```html
-<div class="max-h-1/2 bg-red-500">Este es un alto máximo de 1/2.</div>
-<div class="max-h-xs">Este es un alto máximo de xs.</div>
-```
-
-- **Ancho minimo:**: Es para cambiar el ancho mínimo del elemento. En CSS se utiliza la propiedad `min-width`, en Tailwind CSS se utiliza la clase `min-w-{tamaño}`. Por ejemplo, para utilizar un ancho mínimo de `1/2` podemos utilizar la clase `min-w-1/2`.
-
-```html
-<div class="min-w-1/2 bg-red-500">Este es un ancho mínimo de 1/2.</div>
-<div class="min-w-xs">Este es un ancho mínimo de xs.</div>
-```
-
-- **Contenedores:**: Es para cambiar el ancho del contenedor. En CSS se utiliza la propiedad `width`, en Tailwind CSS se utiliza la clase `container`. Por ejemplo, para utilizar un contenedor de `1/2` podemos utilizar la clase `container`.
-
-```html
-<div class="container mx-auto">Este es un contenedor.</div>
-```
-
-```html
-<div class="container mx-auto max-w-4xl">Este es un contenedor.</div>
-```
-
----
-## Sistema de espaciado
-El sistema de espaciado es un aspecto importante del diseño web. En Tailwind CSS, podemos utilizar clases utilitarias para aplicar espaciado a nuestros elementos. Algunas de las clases más comunes son:
-
-- **Margen:**: Es para cambiar el margen del elemento. En CSS se utiliza la propiedad `margin`, en Tailwind CSS se utiliza la clase `m-{tamaño}`. Por ejemplo, para utilizar un margen de `4` podemos utilizar la clase `m-4`.
-
-```html
-<div class="m-4 bg-red-500">Este es un margen de 4.</div>
-<div class="m-2 bg-red-500">Este es un margen de 2.</div>
-<div class="m-8 bg-red-500">Este es un margen de 8.</div>
-```
-
-Margen superior, inferior, izquierdo y derecho:
-
-```html
-<div class="mt-4 bg-red-500">Este es un margen superior de 4.</div>
-<div class="mb-4 bg-red-500">Este es un margen inferior de 4.</div>
-<div class="ml-4 bg-red-500">Este es un margen izquierdo de 4.</div>
-<div class="mr-4 bg-red-500">Este es un margen derecho de 4.</div>
-```
-
-Margen horizontal y vertical:
-
-```html
-<div class="mx-4 bg-red-500">Este es un margen horizontal de 4.</div>
-<div class="my-4 bg-red-500">Este es un margen vertical de 4.</div>
-```
-
-- **Relleno:**: Es para cambiar el relleno del elemento. En CSS se utiliza la propiedad `padding`, en Tailwind CSS se utiliza la clase `p-{tamaño}`. Por ejemplo, para utilizar un relleno de `4` podemos utilizar la clase `p-4`.
-
-```html
-<div class="p-4 bg-red-500">Este es un relleno de 4.</div>
-<div class="p-2 bg-red-500">Este es un relleno de 2.</div>
-<div class="p-8 bg-red-500">Este es un relleno de 8.</div>
-```
-
----
-## Border y sombras
-
-El borde y las sombras son un aspecto importante del diseño web. En Tailwind CSS, podemos utilizar clases utilitarias para aplicar bordes y sombras a nuestros elementos. Algunas de las clases más comunes son:
-- **Borde:**: Es para cambiar el borde del elemento. En CSS se utiliza la propiedad `border`, en Tailwind CSS se utiliza la clase `border-{tamaño}`. Por ejemplo, para utilizar un borde de `2` podemos utilizar la clase `border-2`.
-
-```html
-<div class="border-2 border-red-500">Este es un borde de 2.</div>
-<div class="border-4 border-red-500">Este es un borde de 4.</div>
-```
-
-Borde superior, inferior, izquierdo y derecho:
-
-```html
-<div class="border-t-2 border-red-500">Este es un borde superior de 2.</div>
-<div class="border-b-2 border-red-500">Este es un borde inferior de 2.</div>
-<div class="border-l-2 border-red-500">Este es un borde izquierdo de 2.</div>
-<div class="border-r-2 border-red-500">Este es un borde derecho de 2.</div>
-```
-
-Borde horizontal y vertical:
-
-```html
-<div class="border-x-2 border-red-500">Este es un borde horizontal de 2.</div>
-<div class="border-y-2 border-red-500">Este es un borde vertical de 2.</div>
-```
-
-- **Radio del borde:**: Es para cambiar el radio del borde del elemento. En CSS se utiliza la propiedad `border-radius`, en Tailwind CSS se utiliza la clase `rounded-{tamaño}`. Por ejemplo, para utilizar un radio de borde de `2` podemos utilizar la clase `rounded-2`.
-
-```html
-<div class="rounded-2 bg-red-500">Este es un radio de borde de 2.</div>
-<div class="rounded-4 bg-red-500">Este es un radio de borde de 4.</div>
-<div class="rounded-full bg-red-500">Este es un radio de borde completo.</div>
-```
-
-Radio de borde superior, inferior, izquierdo y derecho:
-
-```html
-<div class="rounded-t-2 bg-red-500">Este es un radio de borde superior de 2.</div>
-<div class="rounded-b-2 bg-red-500">Este es un radio de borde inferior de 2.</div>
-<div class="rounded-l-2 bg-red-500">Este es un radio de borde izquierdo de 2.</div>
-<div class="rounded-r-2 bg-red-500">Este es un radio de borde derecho de 2.</div>
-``` 
-
-- **Sombras:**: Es para cambiar la sombra del elemento. En CSS se utiliza la propiedad `box-shadow`, en Tailwind CSS se utiliza la clase `shadow-{tamaño}`. Por ejemplo, para utilizar una sombra de `lg` podemos utilizar la clase `shadow-lg`.
-
-```html
-<div class="shadow-lg bg-red-500">Este es una sombra de lg.</div>
-<div class="shadow-md bg-red-500">Este es una sombra de md.</div>
-<div class="shadow-sm bg-red-500">Este es una sombra de sm.</div>
-```
-
-Sombras de diferentes tamaños:
-
-```html
-<div class="shadow-2xl bg-red-500">Este es una sombra de 2xl.</div>
-<div class="shadow-inner bg-red-500">Este es una sombra de inner.</div>
-<div class="shadow-outline bg-red-500">Este es una sombra de outline.</div>
-<div class="shadow-none bg-red-500">Este es una sombra de none.</div>
-```
-
----
-## Proyecto de sección
-
-Vamos a crear una sección sencilla utilizando Tailwind CSS. Esta sección tendrá un fondo de color, un título, un párrafo y un botón. Utilizaremos las clases utilitarias que hemos aprendido en esta sección.
-
-- En este pequeño proyecto vamos a crear **Tajetas de Servicios** y **Secciones de contenido**. 
-- Primero cremos sección de bienvenida y luego la sección de Servicios.
-- La sección de bienvenida tendrá un fondo de color, un título, un párrafo y un botón. Utilizaremos las clases utilitarias que hemos aprendido en esta sección.
-- La sección de Servicios tendrá un fondo de color, un título, un párrafo y un botón. Utilizaremos las clases utilitarias que hemos aprendido en esta sección.
+## Estructura de un proyecto
 
 ```html
 <!doctype html>
@@ -318,62 +33,817 @@ Vamos a crear una sección sencilla utilizando Tailwind CSS. Esta sección tendr
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hola Mundo - TailwindCSS 4</title>
+    <title>Hola Mundo</title>
   </head>
-  <body class="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 font-sans text-white">
-    <header class="py-10 text-center">
-      <h1 class="mb-6 text-5xl font-bold">
-        <span class="relative inline-block p-2 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-emerald-400">
-          <span class="relative">¡Hola Mundo!</span>
-        </span>
-      </h1>
-      <p class="mx-auto max-w-xl text-lg text-slate-700">Una frase clásica con la que casi todos los programadores comienzan su viaje en el mundo del código.</p>
+
+  <body>
+    <!-- Header -->
+    <header>
+      <h1>¡Hola Mundo!</h1>
+      <p>
+        Una frase clásica con la que casi todos los programadores comienzan su
+        viaje en el mundo del código.
+      </p>
     </header>
 
-    <main class="mx-auto max-w-4xl space-y-16 px-6">
-      <!-- ¿Qué es "Hola Mundo"? -->
-      <section class="rounded-xl border border-white/10 bg-white/5 p-8 shadow-lg">
-        <h2 class="mb-4 text-3xl font-semibold text-emerald-500">¿Qué significa "Hola Mundo"?</h2>
-        <p class="leading-relaxed text-slate-700">"Hola Mundo" es una expresión tradicional utilizada como el primer programa que se escribe al aprender un nuevo lenguaje de programación. Sirve como una prueba para asegurarse de que el entorno de desarrollo esté funcionando correctamente.</p>
-      </section>
+    <!-- Lista de Contenido -->
+    <nav>
+      <h2>Contenido</h2>
+      <ul>
+        <li><a href="#que-es">¿Qué es "Hola Mundo"?</a></li>
+        <li><a href="#origen">Origen</a></li>
+        <li><a href="#ejemplos">Ejemplos en Diferentes Lenguajes</a></li>
+        <li><a href="#importancia">Importancia</a></li>
+        <li><a href="#cta">¡Comienza Ahora!</a></li>
+      </ul>
+    </nav>
 
-      <!-- Origen -->
-      <section class="rounded-xl border border-white/10 bg-white/5 p-8 shadow-lg">
-        <h2 class="mb-4 text-3xl font-semibold text-emerald-500">¿De dónde viene?</h2>
-        <p class="leading-relaxed text-slate-700">El primer uso conocido de "Hello, World!" fue en un libro de Brian Kernighan sobre el lenguaje C en 1978. Desde entonces, se ha convertido en una tradición entre programadores de todo el mundo.</p>
-      </section>
+    <!-- ¿Qué es "Hola Mundo"? -->
+    <section id="que-es">
+      <h2>¿Qué es "Hola Mundo"?</h2>
+      <p>
+        "Hola Mundo" es una frase utilizada tradicionalmente como el primer
+        programa que se escribe al aprender un nuevo lenguaje de programación.
+        Su propósito es simple: mostrar un mensaje en pantalla para verificar
+        que el entorno de desarrollo funciona correctamente.
+      </p>
+    </section>
 
-      <!-- Ejemplos en diferentes lenguajes -->
-      <section class="rounded-xl border border-white/10 bg-white/5 p-8 shadow-lg">
-        <h2 class="mb-6 text-3xl font-semibold text-emerald-500">Ejemplos en distintos lenguajes</h2>
-        <div class="grid gap-6 font-mono text-sm text-emerald-400 md:grid-cols-2">
-          <div class="rounded-lg bg-slate-900 p-4">
-            <p class="mb-2">// JavaScript</p>
-            <code>console.log("Hola Mundo");</code>
+    <!-- Origen -->
+    <section id="origen">
+      <h2>Origen</h2>
+      <p>
+        El concepto de "Hola Mundo" se remonta al libro "The C Programming
+        Language" de Brian Kernighan y Dennis Ritchie, publicado en 1978. Desde
+        entonces, se ha convertido en una tradición en el mundo de la
+        programación.
+      </p>
+    </section>
+
+    <!-- Ejemplos en Diferentes Lenguajes -->
+    <section id="ejemplos">
+      <h2>Ejemplos en Diferentes Lenguajes</h2>
+
+      <h3>JavaScript</h3>
+      <pre>
+<code>
+// Un simple ejemplo en JavaScript
+function saludar() {
+  console.log("¡Hola Mundo desde JavaScript!");
+}
+saludar();
+</code>
+      </pre>
+
+      <h3>Python</h3>
+      <pre>
+<code>
+# Un simple ejemplo en Python
+def saludar():
+    print("¡Hola Mundo desde Python!")
+
+saludar()
+</code>
+      </pre>
+    </section>
+
+    <!-- Importancia -->
+    <section id="importancia">
+      <h2>Importancia</h2>
+      <p>
+        "Hola Mundo" es más que un simple mensaje. Representa el primer paso en
+        el aprendizaje de un lenguaje de programación. Es una forma de
+        familiarizarse con la sintaxis básica y de asegurarse de que el entorno
+        de desarrollo está configurado correctamente.
+      </p>
+    </section>
+
+    <!-- Call to Action (CTA) -->
+    <section id="cta">
+      <h2>¡Comienza Ahora!</h2>
+      <p>
+        ¿Listo para escribir tu propio "Hola Mundo"? Elige un lenguaje de
+        programación, configura tu entorno y da el primer paso en tu viaje como
+        desarrollador.
+      </p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>Creado con ❤️ por un entusiasta del desarrollo web</p>
+    </footer>
+  </body>
+</html>
+```
+
+---
+## Tipografía
+
+```html
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hola Mundo</title>
+
+    <link rel="stylesheet" href="output.css" />
+  </head>
+
+  <body class="text-gray-800">
+    <!-- Header -->
+    <header class="text-center">
+      <h1 class="text-4xl font-extrabold text-pink-700">¡Hola Mundo!</h1>
+      <p class="text-lg text-gray-600">
+        Una frase clásica con la que casi todos los programadores comienzan su
+        viaje en el mundo del código.
+      </p>
+    </header>
+
+    <!-- Lista de Contenido -->
+    <nav>
+      <h2 class="text-2xl font-bold text-gray-700">Contenido</h2>
+      <ul class="list-inside list-disc text-gray-600">
+        <li>
+          <a href="#que-es" class="text-blue-500 hover:underline"
+            >¿Qué es "Hola Mundo"?</a
+          >
+        </li>
+        <li>
+          <a href="#origen" class="text-blue-500 hover:underline">Origen</a>
+        </li>
+        <li>
+          <a href="#ejemplos" class="text-blue-500 hover:underline"
+            >Ejemplos en Diferentes Lenguajes</a
+          >
+        </li>
+        <li>
+          <a href="#importancia" class="text-blue-500 hover:underline"
+            >Importancia</a
+          >
+        </li>
+        <li>
+          <a href="#cta" class="text-blue-500 hover:underline"
+            >¡Comienza Ahora!</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <!-- ¿Qué es "Hola Mundo"? -->
+    <section id="que-es">
+      <h2 class="text-2xl font-bold text-gray-700">¿Qué es "Hola Mundo"?</h2>
+      <p class="text-gray-600">
+        "Hola Mundo" es una frase utilizada tradicionalmente como el primer
+        programa que se escribe al aprender un nuevo lenguaje de programación.
+        Su propósito es simple: mostrar un mensaje en pantalla para verificar
+        que el entorno de desarrollo funciona correctamente.
+      </p>
+    </section>
+
+    <!-- Origen -->
+    <section id="origen">
+      <h2 class="text-2xl font-bold text-gray-700">Origen</h2>
+      <p class="text-gray-600">
+        El concepto de "Hola Mundo" se remonta al libro "The C Programming
+        Language" de Brian Kernighan y Dennis Ritchie, publicado en 1978. Desde
+        entonces, se ha convertido en una tradición en el mundo de la
+        programación.
+      </p>
+    </section>
+
+    <!-- Ejemplos en Diferentes Lenguajes -->
+    <section id="ejemplos">
+      <h2 class="text-2xl font-bold text-gray-700">
+        Ejemplos en Diferentes Lenguajes
+      </h2>
+
+      <h3 class="mt-4 text-xl font-semibold text-gray-700">JavaScript</h3>
+      <pre class="rounded bg-gray-800 p-4 text-sm text-gray-800">
+<code class="text-green-400 font-semibold font-mono">
+// Un simple ejemplo en JavaScript
+function saludar() {
+  console.log("¡Hola Mundo desde JavaScript!");
+}
+saludar();
+</code>
+      </pre>
+
+      <h3 class="mt-4 text-xl font-semibold text-gray-700">Python</h3>
+      <pre class="rounded bg-gray-800 p-4 text-sm text-gray-800">
+<code class="text-green-400 font-semibold font-mono">
+# Un simple ejemplo en Python
+def saludar():
+    print("¡Hola Mundo desde Python!")
+
+saludar()
+</code>
+      </pre>
+    </section>
+
+    <!-- Importancia -->
+    <section id="importancia">
+      <h2 class="text-3xl font-bold text-gray-700">Importancia</h2>
+      <p class="text-gray-600">
+        "Hola Mundo" es más que un simple mensaje. Representa el primer paso en
+        el aprendizaje de un lenguaje de programación. Es una forma de
+        familiarizarse con la sintaxis básica y de asegurarse de que el entorno
+        de desarrollo está configurado correctamente.
+      </p>
+    </section>
+
+    <!-- Call to Action (CTA) -->
+    <section id="cta">
+      <h2 class="text-2xl font-bold text-gray-700">¡Comienza Ahora!</h2>
+      <p class="text-gray-600">
+        ¿Listo para escribir tu propio "Hola Mundo"? Elige un lenguaje de
+        programación, configura tu entorno y da el primer paso en tu viaje como
+        desarrollador.
+      </p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-200 text-center">
+      <p class="text-gray-500">
+        Creado con ❤️ por un entusiasta del desarrollo web
+      </p>
+    </footer>
+  </body>
+</html>
+```
+
+---
+## Estilos de listas
+
+```html
+
+<!-- Lista de Contenido -->
+  <nav class="mt-6">
+    <h2 class="text-2xl font-bold text-gray-700">Contenido</h2>
+    <ul class="list-inside list-image-[url(images/maki-arrow.svg)] text-xl font-semibold text-pink-700">
+      <li class="text-start">
+        <a href="#que-es" class="hover:underline">¿Qué es "Hola Mundo"?</a>
+      </li>
+      <li>
+        <a href="#origen" class="hover:underline">Origen</a>
+      </li>
+      <li>
+        <a href="#ejemplos" class="hover:underline">Ejemplos en Diferentes Lenguajes</a>
+      </li>
+      <li>
+        <a href="#importancia" class="hover:underline">Importancia</a>
+      </li>
+      <li>
+        <a href="#cta" class="hover:underline">¡Comienza Ahora!</a>
+      </li>
+    </ul>
+  </nav>
+
+```
+
+---
+## Espaciados
+
+```html
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hola Mundo</title>
+
+    <link rel="stylesheet" href="output.css" />
+  </head>
+
+  <body class="text-gray-800">
+    <!-- Header -->
+    <header class="py-10 px-6 text-center">
+      <h1 class="mb-6 text-4xl font-extrabold text-pink-700">¡Hola Mundo!</h1>
+      <p class="mt-2 text-lg text-gray-600">
+        Una frase clásica con la que casi todos los programadores comienzan su
+        viaje en el mundo del código.
+      </p>
+    </header>
+
+    <!-- Lista de Contenido -->
+    <nav class="mt-8 px-6 py-10">
+      <h2 class="mb-4 text-2xl font-bold text-gray-700">Contenido</h2>
+      <ul
+        class="list-inside list-image-[url('images/maki-arrow.svg')] text-lg font-semibold text-pink-700"
+      >
+        <li class="mb-2">
+          <a href="#que-es" class="hover:underline">¿Qué es "Hola Mundo"?</a>
+        </li>
+        <li class="mb-2">
+          <a href="#origen" class="hover:underline">Origen</a>
+        </li>
+        <li class="mb-2">
+          <a href="#ejemplos" class="hover:underline"
+            >Ejemplos en Diferentes Lenguajes</a
+          >
+        </li>
+        <li class="mb-2">
+          <a href="#importancia" class="hover:underline">Importancia</a>
+        </li>
+        <li>
+          <a href="#cta" class="hover:underline">¡Comienza Ahora!</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- ¿Qué es "Hola Mundo"? -->
+    <section id="que-es" class="mt-12 px-4 py-10">
+      <h2 class="mb-4 text-2xl font-bold text-gray-700">
+        ¿Qué es "Hola Mundo"?
+      </h2>
+      <p class="text-gray-600">
+        "Hola Mundo" es una frase utilizada tradicionalmente como el primer
+        programa que se escribe al aprender un nuevo lenguaje de programación.
+        Su propósito es simple: mostrar un mensaje en pantalla para verificar
+        que el entorno de desarrollo funciona correctamente.
+      </p>
+    </section>
+
+    <!-- Origen -->
+    <section id="origen" class="mt-12 px-4 py-10">
+      <h2 class="mb-4 text-2xl font-bold text-gray-700">Origen</h2>
+      <p class="text-gray-600">
+        El concepto de "Hola Mundo" se remonta al libro "The C Programming
+        Language" de Brian Kernighan y Dennis Ritchie, publicado en 1978. Desde
+        entonces, se ha convertido en una tradición en el mundo de la
+        programación.
+      </p>
+    </section>
+
+    <!-- Ejemplos en Diferentes Lenguajes -->
+    <section id="ejemplos" class="mt-12 px-4 py-10">
+      <h2 class="mb-4 text-2xl font-bold text-gray-700">
+        Ejemplos en Diferentes Lenguajes
+      </h2>
+
+      <h3 class="mt-6 mb-4 font-mono text-xl font-semibold text-gray-700">
+        JavaScript
+      </h3>
+      <pre class="rounded bg-gray-800 p-4 text-sm font-semibold text-green-400">
+<code class="leading-7">
+// Un simple ejemplo en JavaScript
+function saludar() {
+  console.log("¡Hola Mundo desde JavaScript!");
+}
+saludar();
+</code>
+      </pre>
+
+      <h3 class="mt-6 mb-4 font-mono text-xl font-semibold text-gray-700">
+        Python
+      </h3>
+      <pre class="rounded bg-gray-800 p-4 text-sm font-semibold text-green-400">
+<code class="leading-7">
+# Un simple ejemplo en Python
+def saludar():
+    print("¡Hola Mundo desde Python!")
+
+saludar()
+</code>
+      </pre>
+    </section>
+
+    <!-- Importancia -->
+    <section id="importancia" class="mt-12 px-4 py-10">
+      <h2 class="mb-4 text-2xl font-bold text-gray-700">Importancia</h2>
+      <p class="text-gray-600">
+        "Hola Mundo" es más que un simple mensaje. Representa el primer paso en
+        el aprendizaje de un lenguaje de programación. Es una forma de
+        familiarizarse con la sintaxis básica y de asegurarse de que el entorno
+        de desarrollo está configurado correctamente.
+      </p>
+    </section>
+
+    <!-- Call to Action (CTA) -->
+    <section id="cta" class="mt-12 px-4 py-10">
+      <h2 class="mb-4 text-2xl font-bold text-gray-700">¡Comienza Ahora!</h2>
+      <p class="text-gray-600">
+        ¿Listo para escribir tu propio "Hola Mundo"? Elige un lenguaje de
+        programación, configura tu entorno y da el primer paso en tu viaje como
+        desarrollador.
+      </p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-12 bg-gray-200 py-10 text-center">
+      <p class="text-gray-500">
+        Creado con ❤️ por un entusiasta del desarrollo web
+      </p>
+    </footer>
+  </body>
+</html>
+```
+
+---
+## Tamaños y dimensiones
+
+```html
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hola Mundo</title>
+
+    <link rel="stylesheet" href="output.css" />
+  </head>
+
+  <body class="mx-auto min-h-screen max-w-4xl text-gray-800">
+    <!-- Header -->
+    <header class="py-6 text-center">
+      <h1 class="mb-6 text-4xl font-extrabold text-pink-700">¡Hola Mundo!</h1>
+      <p class="mt-2 text-lg text-gray-600">
+        Una frase clásica con la que casi todos los programadores comienzan su
+        viaje en el mundo del código.
+      </p>
+    </header>
+
+    <!-- Lista de Contenido -->
+    <nav class="mt-8 px-4">
+      <h2 class="mb-4 text-2xl font-bold text-gray-700">Contenido</h2>
+      <ul
+        class="list-inside list-image-[url('images/maki-arrow.svg')] text-lg font-semibold text-pink-700"
+      >
+        <li class="mb-2">
+          <a href="#que-es" class="hover:underline">¿Qué es "Hola Mundo"?</a>
+        </li>
+        <li class="mb-2">
+          <a href="#origen" class="hover:underline">Origen</a>
+        </li>
+        <li class="mb-2">
+          <a href="#ejemplos" class="hover:underline"
+            >Ejemplos en Diferentes Lenguajes</a
+          >
+        </li>
+        <li class="mb-2">
+          <a href="#importancia" class="hover:underline">Importancia</a>
+        </li>
+        <li>
+          <a href="#cta" class="hover:underline">¡Comienza Ahora!</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- ¿Qué es "Hola Mundo"? -->
+    <section id="que-es" class="mt-12 px-4">
+      <h2 class="mb-4 text-2xl font-bold text-gray-700">
+        ¿Qué es "Hola Mundo"?
+      </h2>
+      <p class="text-gray-600">
+        "Hola Mundo" es una frase utilizada tradicionalmente como el primer
+        programa que se escribe al aprender un nuevo lenguaje de programación.
+        Su propósito es simple: mostrar un mensaje en pantalla para verificar
+        que el entorno de desarrollo funciona correctamente.
+      </p>
+    </section>
+
+    <!-- Origen -->
+    <section id="origen" class="mt-12 px-4">
+      <h2 class="mb-4 text-2xl font-bold text-gray-700">Origen</h2>
+      <p class="text-gray-600">
+        El concepto de "Hola Mundo" se remonta al libro "The C Programming
+        Language" de Brian Kernighan y Dennis Ritchie, publicado en 1978. Desde
+        entonces, se ha convertido en una tradición en el mundo de la
+        programación.
+      </p>
+    </section>
+
+    <!-- Ejemplos en Diferentes Lenguajes -->
+    <section id="ejemplos" class="mt-12 px-4">
+      <h2 class="mb-4 text-2xl font-bold text-gray-700">
+        Ejemplos en Diferentes Lenguajes
+      </h2>
+
+      <div class="inline-block w-[45%]">
+        <h3 class="mt-6 mb-4 font-mono text-xl font-semibold text-gray-700">
+          JavaScript
+        </h3>
+        <pre
+          class="rounded bg-gray-800 p-4 text-sm font-semibold text-green-400"
+        >
+  <code class="leading-7">
+  // Un simple ejemplo en JavaScript
+  function saludar() {
+    console.log("¡Hola Mundo desde JavaScript!");
+  }
+  saludar();
+  </code>
+        </pre>
+      </div>
+
+      <div class="inline-block w-1/2">
+        <h3 class="mt-6 mb-4 font-mono text-xl font-semibold text-gray-700">
+          Python
+        </h3>
+        <pre
+          class="rounded bg-gray-800 p-4 text-sm font-semibold text-green-400"
+        >
+  <code class="leading-7">
+  # Un simple ejemplo en Python
+  def saludar():
+      print("¡Hola Mundo desde Python!")
+  
+  saludar()
+  </code>
+        </pre>
+      </div>
+    </section>
+
+    <!-- Importancia -->
+    <section id="importancia" class="mt-12 px-4">
+      <h2 class="mb-4 text-2xl font-bold text-gray-700">Importancia</h2>
+      <p class="text-gray-600">
+        "Hola Mundo" es más que un simple mensaje. Representa el primer paso en
+        el aprendizaje de un lenguaje de programación. Es una forma de
+        familiarizarse con la sintaxis básica y de asegurarse de que el entorno
+        de desarrollo está configurado correctamente.
+      </p>
+    </section>
+
+    <!-- Call to Action (CTA) -->
+    <section id="cta" class="mt-12 px-4">
+      <h2 class="mb-4 text-2xl font-bold text-gray-700">¡Comienza Ahora!</h2>
+      <p class="text-gray-600">
+        ¿Listo para escribir tu propio "Hola Mundo"? Elige un lenguaje de
+        programación, configura tu entorno y da el primer paso en tu viaje como
+        desarrollador.
+      </p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-12 bg-gray-200 py-10 text-center">
+      <p class="text-gray-500">
+        Creado con ❤️ por un entusiasta del desarrollo web
+      </p>
+    </footer>
+  </body>
+</html>
+```
+
+---
+## Border y sombras
+
+```html
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hola Mundo</title>
+
+    <link rel="stylesheet" href="output.css" />
+  </head>
+
+  <body class="mx-auto min-h-screen max-w-4xl py-10 text-gray-800">
+    <!-- Header -->
+    <header class="px-6 py-10 text-center">
+      <h1 class="mb-6 text-4xl font-extrabold text-pink-700 text-shadow-lg">
+        ¡Hola Mundo!
+      </h1>
+      <p class="mt-2 text-lg text-gray-600">
+        Una frase clásica con la que casi todos los programadores comienzan su
+        viaje en el mundo del código.
+      </p>
+    </header>
+
+    <!-- Lista de Contenido -->
+    <nav class="mt-8 rounded-xl px-6 py-8 shadow-lg">
+      <h2 class="mb-4 text-2xl font-bold text-gray-700">Contenido</h2>
+      <ul
+        class="list-inside list-image-[url('images/maki-arrow.svg')] text-lg font-semibold text-pink-700"
+      >
+        <li class="mb-2">
+          <a href="#que-es" class="hover:underline">¿Qué es "Hola Mundo"?</a>
+        </li>
+        <li class="mb-2">
+          <a href="#origen" class="hover:underline">Origen</a>
+        </li>
+        <li class="mb-2">
+          <a href="#ejemplos" class="hover:underline"
+            >Ejemplos en Diferentes Lenguajes</a
+          >
+        </li>
+        <li class="mb-2">
+          <a href="#importancia" class="hover:underline">Importancia</a>
+        </li>
+        <li>
+          <a href="#cta" class="hover:underline">¡Comienza Ahora!</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- ¿Qué es "Hola Mundo"? -->
+    <section id="que-es" class="mt-12 rounded-xl px-4 py-10 shadow-lg">
+      <h2 class="mb-4 text-2xl font-bold text-gray-700">
+        ¿Qué es "Hola Mundo"?
+      </h2>
+      <p class="text-gray-600">
+        "Hola Mundo" es una frase utilizada tradicionalmente como el primer
+        programa que se escribe al aprender un nuevo lenguaje de programación.
+        Su propósito es simple: mostrar un mensaje en pantalla para verificar
+        que el entorno de desarrollo funciona correctamente.
+      </p>
+    </section>
+
+    <!-- Origen -->
+    <section id="origen" class="mt-12 rounded-xl px-4 py-10 shadow-lg">
+      <h2 class="mb-4 text-2xl font-bold text-gray-700">Origen</h2>
+      <p class="text-gray-600">
+        El concepto de "Hola Mundo" se remonta al libro "The C Programming
+        Language" de Brian Kernighan y Dennis Ritchie, publicado en 1978. Desde
+        entonces, se ha convertido en una tradición en el mundo de la
+        programación.
+      </p>
+    </section>
+
+    <!-- Ejemplos en Diferentes Lenguajes -->
+    <section id="ejemplos" class="mt-12 rounded-xl px-4 py-10 shadow-lg">
+      <h2 class="mb-4 text-2xl font-bold text-gray-700">
+        Ejemplos en Diferentes Lenguajes
+      </h2>
+
+      <div class="inline-block w-[47%]">
+        <h3 class="mt-6 mb-4 font-mono text-xl font-semibold text-gray-700">
+          JavaScript
+        </h3>
+        <pre
+          class="rounded-xl border-3 border-green-500 bg-gray-800 p-2 text-sm font-semibold text-green-400 shadow-xl/30"
+        >
+  <code class="leading-7">
+  // Un simple ejemplo en JavaScript
+  function saludar() {
+    console.log("¡Hola Mundo!");
+  }
+  saludar();
+  </code>
+        </pre>
+      </div>
+
+      <div class="inline-block w-1/2">
+        <h3 class="mt-6 mb-4 font-mono text-xl font-semibold text-gray-700">
+          Python
+        </h3>
+        <pre
+          class="rounded-xl border-3 border-green-500 bg-gray-800 p-2 text-sm font-semibold text-green-400 shadow-xl/30"
+        >
+  <code class="leading-7">
+  # Un simple ejemplo en Python
+  def saludar():
+      print("¡Hola Mundo!")
+  
+  saludar()
+  </code>
+        </pre>
+      </div>
+    </section>
+
+    <!-- Importancia -->
+    <section id="importancia" class="mt-12 rounded-xl px-4 py-10 shadow-lg">
+      <h2 class="mb-4 text-2xl font-bold text-gray-700">Importancia</h2>
+      <p class="text-gray-600">
+        "Hola Mundo" es más que un simple mensaje. Representa el primer paso en
+        el aprendizaje de un lenguaje de programación. Es una forma de
+        familiarizarse con la sintaxis básica y de asegurarse de que el entorno
+        de desarrollo está configurado correctamente.
+      </p>
+    </section>
+
+    <!-- Call to Action (CTA) -->
+    <section id="cta" class="mt-12 rounded-xl px-4 py-10">
+      <h2 class="mb-4 text-2xl font-bold text-gray-700">¡Comienza Ahora!</h2>
+      <p class="text-gray-600">
+        ¿Listo para escribir tu propio "Hola Mundo"? Elige un lenguaje de
+        programación, configura tu entorno y da el primer paso en tu viaje como
+        desarrollador.
+      </p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-12 bg-gray-200 py-10 text-center">
+      <p class="text-gray-500">
+        Creado con ❤️ por un entusiasta del desarrollo web
+      </p>
+    </footer>
+  </body>
+</html>
+
+```
+
+---
+## Backgrounds
+
+```html
+
+<!-- Header -->
+    <header class="px-6 py-10 text-center">
+      <h1
+        class="mb-6 bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text text-5xl font-extrabold text-transparent"
+      >
+        ¡Hola Mundo!
+      </h1>
+      <p class="mt-2 text-lg text-gray-600">
+        Una frase clásica con la que casi todos los programadores comienzan su
+        viaje en el mundo del código.
+      </p>
+    </header>
+
+    <!-- ¿Qué es "Hola Mundo"? -->
+    <section
+      id="que-es"
+      class="mt-12 rounded-xl bg-linear-to-r from-cyan-200 to-blue-200 px-4 py-10 shadow-lg"
+    >
+      <h2 class="mb-4 text-2xl font-bold text-gray-700">
+        ¿Qué es "Hola Mundo"?
+      </h2>
+      <p class="text-gray-600">
+        "Hola Mundo" es una frase utilizada tradicionalmente como el primer
+        programa que se escribe al aprender un nuevo lenguaje de programación.
+        Su propósito es simple: mostrar un mensaje en pantalla para verificar
+        que el entorno de desarrollo funciona correctamente.
+      </p>
+    </section>
+
+```
+
+---
+## Flexbox
+
+
+
+---
+## Grid
+
+
+
+---
+## Práctica con Flexbox y Grid
+
+```html
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog de Recetas</title>
+  </head>
+  <body class="flex min-h-screen flex-col justify-between bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-green-600 p-6 text-white shadow">
+      <div class="mx-auto max-w-7xl">
+        <h1 class="text-3xl font-bold">Recetas Deliciosas</h1>
+        <p class="text-sm">Explora nuevas recetas cada semana 🍲</p>
+      </div>
+    </header>
+
+    <!-- Main layout -->
+    <main class="container mx-auto mt-6 grid grid-cols-3 gap-6 p-6">
+      <!-- Posts -->
+      <section class="col-span-2 flex gap-6">
+        <!-- Card 1 -->
+        <article class="overflow-hidden rounded-lg bg-white shadow">
+          <img src="https://placehold.co/400x250" alt="Receta" class="h-48 w-full object-cover" />
+          <div class="p-4">
+            <h2 class="mb-2 text-xl font-semibold">Pasta al Pesto</h2>
+            <p class="text-sm text-gray-600">Una receta fácil y deliciosa de pasta con salsa pesto casera. Ideal para almuerzos rápidos.</p>
+            <button class="mt-4 inline-block text-green-600 hover:underline">Leer más</button>
           </div>
+        </article>
 
-          <div class="rounded-lg bg-slate-900 p-4">
-            <p class="mb-2"># Python</p>
-            <code>print("Hola Mundo")</code>
+        <!-- Card 2 -->
+        <article class="overflow-hidden rounded-lg bg-white shadow">
+          <img src="https://placehold.co/400x250" alt="Receta" class="h-48 w-full object-cover" />
+          <div class="p-4">
+            <h2 class="mb-2 text-xl font-semibold">Tacos Mexicanos</h2>
+            <p class="text-sm text-gray-600">Aprende a preparar tacos tradicionales con carne, verduras frescas y salsas caseras.</p>
+            <button class="mt-4 inline-block text-green-600 hover:underline">Leer más</button>
           </div>
-        </div>
+        </article>
+
+        <!-- Puedes duplicar más tarjetas aquí -->
       </section>
 
-      <!-- Importancia -->
-      <section class="rounded-xl border border-white/10 bg-white/5 p-8 shadow-lg">
-        <h2 class="mb-4 text-3xl font-semibold text-emerald-500">¿Por qué es tan importante?</h2>
-        <p class="leading-relaxed text-slate-700">Aunque puede parecer simple, escribir "Hola Mundo" simboliza el inicio de un nuevo camino. Significa que lograste configurar correctamente tu entorno, entender lo básico de la sintaxis y ejecutar tu primer programa.</p>
-      </section>
-
-      <!-- CTA -->
-      <section class="space-y-4 py-10 text-center">
-        <h2 class="text-2xl font-semibold text-emerald-500">¿Listo para escribir tu propio "Hola Mundo"?</h2>
-        <p class="text-slate-700">¡Elige un lenguaje, abre tu editor y comienza a programar!</p>
-        <a href="https://www.w3schools.com/" target="_blank" class="inline-block rounded-full bg-emerald-500 px-6 py-3 font-bold text-white transition hover:bg-emerald-600">Aprende a programar</a>
-      </section>
+      <!-- Sidebar -->
+      <aside class="rounded-lg bg-white p-4 shadow">
+        <h3 class="mb-4 text-lg font-bold">Categorías</h3>
+        <ul class="space-y-2 text-green-600">
+          <li><a href="#" class="hover:underline">Pastas</a></li>
+          <li><a href="#" class="hover:underline">Mexicana</a></li>
+          <li><a href="#" class="hover:underline">Postres</a></li>
+          <li><a href="#" class="hover:underline">Ensaladas</a></li>
+          <li><a href="#" class="hover:underline">Vegano</a></li>
+        </ul>
+      </aside>
     </main>
 
-    <footer class="border-t py-6 text-center text-sm text-slate-500">© 2025 - Proyecto educativo creado con ❤️ y Tailwind CSS 4.</footer>
+    <!-- Footer -->
+    <footer class="mt-6 bg-gray-800 p-4 text-white">
+      <div class="mx-auto max-w-7xl text-center">© 2025 Recetas Deliciosas. Todos los derechos reservados.</div>
+    </footer>
   </body>
 </html>
 
@@ -382,7 +852,12 @@ Vamos a crear una sección sencilla utilizando Tailwind CSS. Esta sección tendr
 ---
 ## Resumen
 
-En esta sección hemos aprendido sobre los fundamentos de Tailwind CSS. Hemos visto cómo utilizar las clases utilitarias para aplicar estilos a nuestros elementos. Hemos creado una sección sencilla utilizando Tailwind CSS. En la siguiente sección, aprenderemos sobre el sistema de diseño de Tailwind CSS y cómo utilizarlo para crear diseños personalizados.
+En esta sección, hemos explorado cómo utilizar Tailwind CSS para crear un diseño atractivo y funcional. Desde la tipografía hasta los estilos de listas, espaciados, tamaños, bordes y sombras, así como el uso de Flexbox y Grid para la disposición de elementos. Con estos conocimientos, puedes comenzar a construir tus propias interfaces de usuario personalizadas y responsivas.
+
+
+
+
+
 
 
 
