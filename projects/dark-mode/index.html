@@ -1,24 +1,75 @@
 <!doctype html>
-<html lang="es">
-
-<head>
+<html lang="es" data-theme="light">
+  <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>Vite App</title>
 
-    <link rel="stylesheet" href="src/style.css">
-</head>
+    <link rel="stylesheet" href="src/style.css" />
 
-<body class="bg-white dark:bg-black text-black dark:text-white">
-    <button id="theme-toggle" class="p-2 bg-gray-200 dark:bg-gray-800 rounded">
-        Toggle Dark Mode
-    </button>
-    <h1 class="text-3xl font-bold underline">
-        Hello world!
-    </h1>
+    <script>
+      // Evitar FOUC: aplicar tema antes de que cargue la página
+      const theme = localStorage.theme;
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)",
+      ).matches;
 
-    <script src="src/theme-toggle.js"></script>
-</body>
+      if (theme === "dark" || (!theme && prefersDark)) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      } else {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    </script>
+  </head>
+  <body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200">
+    <header
+      class="mx-auto my-5 w-1/2 rounded-2xl bg-gray-200 p-7 text-center shadow-lg dark:bg-gray-800"
+    >
+      <!-- <button
+        id="modo-btn"
+        class="mt-4 cursor-pointer rounded-lg bg-gray-300 px-4 py-2 font-semibold hover:bg-gray-400 dark:bg-gray-700 dark:hover:bg-gray-600"
+      >
+        Alternar modo oscuro
+      </button> -->
+      <!-- Botón para cambiar tema -->
+      <div class="mt-6 space-x-2">
+        <button
+          onclick="setTheme('light')"
+          class="rounded bg-gray-300 px-4 py-2 hover:bg-gray-400 dark:bg-gray-700 dark:hover:bg-gray-600"
+        >
+          Claro
+        </button>
+        <button
+          onclick="setTheme('dark')"
+          class="rounded bg-gray-300 px-4 py-2 hover:bg-gray-400 dark:bg-gray-700 dark:hover:bg-gray-600"
+        >
+          Oscuro
+        </button>
+        <button
+          onclick="setTheme('system')"
+          class="rounded bg-gray-300 px-4 py-2 hover:bg-gray-400 dark:bg-gray-700 dark:hover:bg-gray-600"
+        >
+          Sistema
+        </button>
+      </div>
 
+      <h1 class="my-4 text-3xl font-bold">¿Porque mode Dark?</h1>
+      <p class="mb-3 text-xl">
+        El modo oscuro es un tema de interfaz de usuario que utiliza colores
+        oscuros para el fondo y colores más claros para el texto y otros
+        elementos. Se ha vuelto cada vez más popular en los últimos años debido
+        a sus beneficios potenciales para la salud ocular y la duración de la
+        batería en dispositivos móviles.
+      </p>
+
+      <!-- Boton de leer más -->
+      <a href="https://es.wikipedia.org/wiki/Modo_oscuro" class="btn"
+        >Leer más</a
+      >
+    </header>
+
+    <!-- <script type="module" src="src/theme-class.js"></script> -->
+    <script type="module" src="src/theme-attribute.js"></script>
+  </body>
 </html>

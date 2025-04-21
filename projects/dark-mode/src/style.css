@@ -1,3 +1,40 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
+/* Este es el cambio clave */
+/* @custom-variant dark (&:where(.dark, .dark *)); */
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+
+@base {
+  html {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+@layer components {
+  .btn {
+    background-color: white;
+    padding: 5px 10px;
+    display: inline-block;
+    cursor: pointer;
+    color: black;
+    transition: all ease-in-out;
+    transition-duration: 0.5s;
+    border-radius: 10px;
+
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+
+    @variant dark {
+      background-color: black;
+      color: white;
+
+      @variant hover {
+        background-color: white;
+        color: black;
+      }
+    }
+  }
+}
